@@ -9,6 +9,7 @@ export AWT_TOOLKIT=MToolkit
 picom --corner-radius 10 --round-borders -b &
 # Start slstatus
 slstatus &
+dunst &
 # Start my lock screen and screensaver
 xfce4-screensaver &
 exec dwm 

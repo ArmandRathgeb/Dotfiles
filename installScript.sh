@@ -2,7 +2,7 @@
 
 BASEDIR=$PWD
 
-pacman -S git doas gcc make zsh kitty curl neofetch go feh xfce4-screensaver
+pacman -S git doas gcc make zsh kitty curl neofetch go feh xfce4-screensaver dunst
 chsh -s $(which zsh)
 
 #### Ohmyzsh setup ####
