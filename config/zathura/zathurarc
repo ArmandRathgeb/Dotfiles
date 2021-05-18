@@ -1,0 +1,12 @@
+# clipboard and other selections
+set selection-clipboard clipboard
+tabbed -c zathura -e
+
+# colors 
+set default-bg "#1d2021"
+set default-fg "#f8f8f2"
+
+# window settings
+set window-title-basename true
+set window-title-home-tilde true
+set window-title-page true
