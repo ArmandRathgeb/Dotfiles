@@ -1,0 +1,26 @@
+theme = "nord-dark"
+icons = "awesome"
+
+[[block]]
+block = "focused_window"
+max_width = 50
+show_marks = "visible"
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "RAM: {mem_used}"
+format_swap = "Swap: {swap_used}"
+
+[[block]]
+block = "cpu"
+interval = 1
+format = "{utilization} {frequency}"
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "time"
+interval = 60
+format = "%a %m/%d %R"
