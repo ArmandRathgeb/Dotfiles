@@ -45,7 +45,7 @@ bindsym $mod+Shift+Return exec kitty
 bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
-bindsym $mod+p exec --no-startup-id dmenu_run
+bindsym $mod+p exec --no-startup-id dmenu_run -fn '*-ubuntu-medium-r-*-*-32-*'
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -178,20 +178,24 @@ bindsym $mod+r mode "resize"
 bar {
         status_command /bin/i3status-rs /home/doctorbang/.config/i3status-rust/config.toml
         position top
-        tray_output primary
+        tray_output none 
+        workspace_min_width 50
+        strip_workspace_numbers no
+        strip_workspace_name no
         i3bar_command i3bar --transparency
         colors {
           background #282a3685
-          statusline #032E94
+          statusline #032E9485
         }
 }
 for_window [class=".*"] border pixel 2
-for_window [class="brave"] border pixel 
+for_window [class="brave"] border pixel 4 
 gaps inner 40
 default_orientation auto 
 
 bindsym $mod+minus move scratchpad
 bindsym $mod+grave scratchpad show
+bindsym $mod+Tab workspace back_and_forth
 
 
 
