@@ -184,7 +184,7 @@ bar {
         strip_workspace_name no
         i3bar_command i3bar --transparency
         colors {
-          background #282a3685
+          background #1e1f2185
           statusline #032E9485
         }
 }
