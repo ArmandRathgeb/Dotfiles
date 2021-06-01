@@ -51,4 +51,4 @@ ln -s ${BASEDIR}/.config/gtk-3.0 ${HOMEDIR}/.config/gtk-3.0
 ln -s ${BASEDIR}/.config/zathura ${HOMEDIR}/.config/zathura
 ln -s ${BASEDIR}/.config/i3status-rust ${HOMEDIR}/.config/i3status-rust
 ln -s ${BASEDIR}/.config/picom.conf ${HOMEDIR}/.config/picom.conf
-
+ln -s ${BASEDIR}/.config/.xbindkeysrc ${HOMEDIR}/.xbindkeysrc

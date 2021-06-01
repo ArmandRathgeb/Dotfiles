@@ -1,0 +1,11 @@
+configuration{
+  modi: "run";
+  lines: 20;
+  padding: 8;
+  width: 20;
+  font: "ubuntu 16";
+  show-icons: true;
+  terminal: "kitty";
+  color-window: "#1e1f21,#005577";
+  color-normal: "#1e1f21,#FFFFFF,#1e1f21";
+}
