@@ -1,8 +1,8 @@
 # Launch no matter what
 ~/.fehbg &
-picom --corner-radius 10 --round-borders -b &
+picom --experimental-backends --backend glx &
 dunst &
-xautolock -locker 'i3lock -i ~/Images/ThrawnBackground.png' -time 5
+xautolock -locker 'i3lock -i ~/Images/ThrawnBackground.png' -time 5 &
 
 # If launching dwm uncomment the following
 #

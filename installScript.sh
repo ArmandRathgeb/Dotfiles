@@ -5,15 +5,15 @@ cd ~
 HOMEDIR=$PWD
 cd ${BASEDIR}
 
-pacman -S git doas gcc make zsh kitty curl neofetch go feh xfce4-screensaver dunst
+pacman -S git doas gcc make zsh kitty curl neofetch go feh dunst i3-gaps i3lock i3status-rust
 chsh -s $(which zsh)
 
 #### Ohmyzsh setup ####
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 #### yay setup ####
-mkdir ~/Dev/
-cd ~/Dev/
+mkdir ~/Workspaces/
+cd ~/Workspaces/
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg --install --clean
@@ -22,7 +22,7 @@ cd ..
 
 #### Window Manager setup ####
 git clone https://github.com/ArmandRathgeb/dwm
-cd ~/Dev/dwm
+cd ~/Workspaces/dwm
 make clean install
 cd ${BASEDIR}
 

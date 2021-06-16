@@ -1,12 +1,17 @@
 # clipboard and other selections
 set selection-clipboard clipboard
 tabbed -c zathura -e
+map <C-a> recolor
+map <Right> navigate next 
+map <Left> navigate previous 
 
 # colors 
 set default-bg "#1d2021"
 set default-fg "#f8f8f2"
+set recolor true 
 
 # window settings
 set window-title-basename true
 set window-title-home-tilde true
 set window-title-page true
+

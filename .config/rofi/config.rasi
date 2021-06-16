@@ -1,5 +1,5 @@
 configuration{
-  modi: "run";
+  modi: "run,keys,file-browser,combi,drun";
   lines: 20;
   padding: 8;
   width: 20;
@@ -8,4 +8,5 @@ configuration{
   terminal: "kitty";
   color-window: "#1e1f21,#005577";
   color-normal: "#1e1f21,#FFFFFF,#1e1f21";
+  run-command: "{cmd}";
 }

@@ -23,6 +23,7 @@ ZSH_THEME="gentoo"
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
+fpath+=/usr/share/zsh/functions/rust
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -114,12 +115,31 @@ alias ..="cd .."
 alias ....="cd ../.."
 alias ~="cd ~"
 # Quick command for suspending to disk
-alias susdisk="systemctl hibernate"
+alias susdisk="i3lock -i ~/Images/ThrawnBackground.png && systemctl hibernate"
 # Quick command for suspending to RAM
-alias susram="clear && systemctl suspend"
+alias susram="i3lock -i ~/Images/ThrawnBackground.png && clear && systemctl suspend"
 # lh for list hidden
 alias lh="ls -a"
 #Make displaying images in kittty easier
 alias disp="kitty +kitten icat"
 #czkawka is hard to remember
 alias imgclean="czkawka-cli"
+
+
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/etc/profile.d/conda.sh" ]; then
+        . "/usr/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
