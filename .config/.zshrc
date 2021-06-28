@@ -124,6 +124,7 @@ alias lh="ls -a"
 alias disp="kitty +kitten icat"
 #czkawka is hard to remember
 alias imgclean="czkawka-cli"
+alias sudo="doas "
 
 
 
