@@ -2,7 +2,7 @@
 ~/.fehbg &
 picom --experimental-backends --backend glx &
 dunst &
-xautolock -locker 'i3lock -i ~/Images/ThrawnBackground.png' -time 5 &
+xautolock -locker 'i3lock -B 25 -k --{inside,ring}-color=414f6b55 --{layout,time,date,greeter}-color=ffffff -p win' -time 10 &
 
 # If launching dwm uncomment the following
 #
