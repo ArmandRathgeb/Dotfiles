@@ -1,0 +1,91 @@
+[bar/general]
+background = #1e1f219
+foreground = #f8f8f2
+border-size = 3
+border-color = #0c7ed6
+padding = 2
+
+radius-bottom = 3
+
+font-0 = Ubuntu-Medium:size=16
+font-1 = octicons:style=Medium:size=16
+font-2 = icomoon:style=Regular:size=16
+font-3 = FontAwesome:size=16
+
+separator = "            "
+
+dim-value = .85
+
+tray-position = none
+
+
+[bar/mybar]
+wm-restack = i3
+inherits = bar/general
+height = 35
+width = 2000
+offset-x = 100%:-200
+offset-y = 100%
+modules-left = i3
+modules-center = 
+modules-right = memory cpu pulseaudio datetime
+
+
+;[bar/mybar1]
+;inherits = bar/general
+;height = 35
+;width = 1000
+;offset-x = 0
+;offset-y = 0
+;modules-left = i3
+;modules-center = 
+;modules-right = 
+;padding = 0
+
+[settings]
+pseudo-transparency = false
+
+[module/datetime]
+type = internal/date
+interval = 1.0
+date = "%d/%m/%Y"
+time = "%H:%M"
+label = "%date% | %time%"
+
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_1200.3.analog-stereo
+use-ui-max = true
+interval = 5
+format-volume = <ramp-volume> <label-volume>
+label-muted = 🔇muted
+label-muted-foreground = #666
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+click-middle = pavucontrol
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format = <label> 
+label = CPU  %percentage%%
+
+[module/memory]
+type = internal/memory
+interval = 3
+format = <label>
+label = RAM  %gb_used%/%gb_free%
+
+[module/i3]
+type = internal/i3
+enabe-click = true
+format = <label-state> 
+label-focused = %index%
+label-focused-background = #0c7ed6
+label-focused-padding = 3
+label-unfocused = %index%
+label-unfocused-padding = 2
+label-urgent = %index%
+label-urgent-background = #f40410
+label-urgent-padding = 3
