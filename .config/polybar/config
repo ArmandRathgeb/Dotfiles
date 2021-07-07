@@ -1,5 +1,6 @@
 [bar/general]
-background = #1e1f219
+enable-ipc = true
+background = #1e1f21
 foreground = #f8f8f2
 border-size = 3
 border-color = #0c7ed6
@@ -8,9 +9,11 @@ padding = 2
 radius-bottom = 3
 
 font-0 = Ubuntu-Medium:size=16
-font-1 = octicons:style=Medium:size=16
+font-1 = Font Awesome 5 Free:size=10;1
 font-2 = icomoon:style=Regular:size=16
 font-3 = FontAwesome:size=16
+font-4 = octicons:style=Medium:size=16
+
 
 separator = "            "
 
@@ -23,11 +26,11 @@ tray-position = none
 wm-restack = i3
 inherits = bar/general
 height = 35
-width = 2000
+width = 3840 
 offset-x = 100%:-200
 offset-y = 100%
 modules-left = i3
-modules-center = 
+modules-center = spotify previous playpause next
 modules-right = memory cpu pulseaudio datetime
 
 
@@ -58,8 +61,8 @@ sink = alsa_output.pci-0000_1200.3.analog-stereo
 use-ui-max = true
 interval = 5
 format-volume = <ramp-volume> <label-volume>
-label-muted = 🔇muted
-label-muted-foreground = #666
+label-muted =   muted
+label-muted-foreground = #f24649
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
@@ -75,7 +78,7 @@ label = CPU  %percentage%%
 type = internal/memory
 interval = 3
 format = <label>
-label = RAM  %gb_used%/%gb_free%
+label = RAM  %gb_used%/%gb_total%
 
 [module/i3]
 type = internal/i3
@@ -85,7 +88,48 @@ label-focused = %index%
 label-focused-background = #0c7ed6
 label-focused-padding = 3
 label-unfocused = %index%
-label-unfocused-padding = 2
+label-unfocused-padding = 3
 label-urgent = %index%
 label-urgent-background = #f40410
 label-urgent-padding = 3
+
+; https://github.com/mihirlad55/polybar-spotify-module must be installed
+
+[module/previous]
+type = custom/ipc
+format-font = 2
+; Default
+hook-0 = echo ""
+; When spotify active
+hook-1 = echo ""
+click-left = "spotifyctl -q previous"
+
+
+[module/next]
+type = custom/ipc
+format-font = 2
+; Default
+hook-0 = echo ""
+; When spotify active
+hook-1 = echo ""
+click-left = "spotifyctl -q next"
+
+
+[module/playpause]
+type = custom/ipc
+format-font = 2
+; Default
+hook-0 = echo ""
+; Playing
+hook-1 = echo ""
+; Paused
+hook-2 = echo ""
+click-left = "spotifyctl -q playpause"
+
+
+[module/spotify]
+type = custom/ipc
+; Default
+hook-0 = echo ""
+; Playing/paused show song name and artist
+hook-1 = spotifyctl -q status --format '%{F#4fdb36} %{F-}%{F#f41317} %artist%: %title% %{F-}' --max-length 55 --max-title-length 30 --max-artist-length 25 --trunc '...'

@@ -4,3 +4,4 @@ killall -q polybar
 
 polybar mybar 2>&1 & disown
 #polybar mybar1 2>&1 & disown
+spotify-listener & disown
