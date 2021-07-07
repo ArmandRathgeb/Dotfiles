@@ -13,6 +13,7 @@ ln -s $DIR/.config/picom.conf $HOME/.config/picom.conf
 ln -s $DIR/.config/rofi $HOME/.config/rofi
 ln -s $DIR/.config/spotify-tui $HOME/.config/spotify-tui
 ln -s $DIR/.config/zathura $HOME/.config/zathura
+ln -s $DIR/.config/alacritty $HOME/.config/alacritty
 
 ln -s $DIR/.config/.fehbg $HOME/.fehbg
 ln -s $DIR/.config/.gtkrc-2.0 $HOME/.gtkrc-2.0
