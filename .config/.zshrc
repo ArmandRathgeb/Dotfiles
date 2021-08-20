@@ -4,12 +4,12 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.config/.oh-my-zsh"
-
+export TERM=alacritty
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="gentoo"
+ZSH_THEME="bira"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -17,22 +17,7 @@ ZSH_THEME="gentoo"
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
 fpath+=/usr/share/zsh/functions/rust
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -86,7 +71,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export ML_PATH="$HOME/Dev/ml"
+export ML_PATH="$HOME/Workspaces/Python/ml"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -115,9 +100,9 @@ alias ..="cd .."
 alias ....="cd ../.."
 alias ~="cd ~"
 # Quick command for suspending to disk
-alias susdisk="i3lock -i ~/Images/ThrawnBackground.png && systemctl hibernate"
+alias susdisk="i3lock -B 25 -k --{inside,ring}-color=414f6b55 --{layout,time,date,greeter}-color=ffffff -p win && systemctl hibernate"
 # Quick command for suspending to RAM
-alias susram="i3lock -i ~/Images/ThrawnBackground.png && clear && systemctl suspend"
+alias susram="i3lock -B 25 -k --{inside,ring}-color=414f6b55 --{layout,time,date,greeter}-color=ffffff -p win && clear && systemctl suspend"
 # lh for list hidden
 alias lh="ls -a"
 #Make displaying images in kittty easier
@@ -125,22 +110,4 @@ alias disp="kitty +kitten icat"
 #czkawka is hard to remember
 alias imgclean="czkawka-cli"
 alias sudo="doas "
-
-
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/usr/etc/profile.d/conda.sh" ]; then
-        . "/usr/etc/profile.d/conda.sh"
-    else
-        export PATH="/usr/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
+alias jvav="java "

@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill '$HOME/Images/ThrawnBackground.png' 
+feh --no-fehbg --bg-fill '/home/doctorbang/Pictures/Wallpapers/wallpaper_landscape.jpg' 

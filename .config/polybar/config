@@ -2,11 +2,11 @@
 enable-ipc = true
 background = #1e1f21
 foreground = #f8f8f2
-border-size = 3
+border-size = 0
 border-color = #0c7ed6
-padding = 2
+padding-right = 2
 
-radius-bottom = 3
+radius-bottom = 6
 
 font-0 = Ubuntu-Medium:size=16
 font-1 = Font Awesome 5 Free:size=10;1
@@ -15,45 +15,33 @@ font-3 = FontAwesome:size=16
 font-4 = octicons:style=Medium:size=16
 
 
-separator = "            "
+separator = "          "
 
-dim-value = .85
+dim-value = 1
 
 tray-position = none
 
 
 [bar/mybar]
-wm-restack = i3
 inherits = bar/general
-height = 35
-width = 3840 
-offset-x = 100%:-200
-offset-y = 100%
-modules-left = i3
+wm-restack = i3
+height = 30
+width = 3840
+offset-x = 50
+offset-y = 30
+modules-left = i3 
 modules-center = spotify previous playpause next
 modules-right = memory cpu pulseaudio datetime
 
-
-;[bar/mybar1]
-;inherits = bar/general
-;height = 35
-;width = 1000
-;offset-x = 0
-;offset-y = 0
-;modules-left = i3
-;modules-center = 
-;modules-right = 
-;padding = 0
-
 [settings]
-pseudo-transparency = false
+pseudo-transparency = true
 
 [module/datetime]
 type = internal/date
 interval = 1.0
-date = "%d/%m/%Y"
+date = "%m/%d/%Y"
 time = "%H:%M"
-label = "%date% | %time%"
+label = "%{F0d9adb}%date%    |    %time%%{F-}"
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -86,12 +74,12 @@ enabe-click = true
 format = <label-state> 
 label-focused = %index%
 label-focused-background = #0c7ed6
-label-focused-padding = 3
+label-focused-padding = 2
 label-unfocused = %index%
-label-unfocused-padding = 3
+label-unfocused-padding = 2
 label-urgent = %index%
 label-urgent-background = #f40410
-label-urgent-padding = 3
+label-urgent-padding = 2
 
 ; https://github.com/mihirlad55/polybar-spotify-module must be installed
 
