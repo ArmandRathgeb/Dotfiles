@@ -1,0 +1,72 @@
+* {
+  border: none;
+  font-family: FontAwesome;
+  font-size: 20px;
+  padding: 0 30px 0 30px;
+  }
+
+window#waybar {
+  background: rgba( 0, 0, 0, 0);
+}
+
+#clock {
+  background: rgba(29,29,30,.5);
+  border-top-right-radius: 20;
+  border-bottom-right-radius: 20;
+}
+
+#pulseaudio {
+  background: rgba(29,29,30,.5);
+}
+
+#pulseaudio.muted {
+  padding: 0 58 0 58;
+  background: rgba(256, 0, 0, .7);
+}
+
+#network {
+  background: rgba(29,29,30,.5);
+}
+
+#cpu {
+  background: rgba(29,29,30,.5);
+  border-top-left-radius: 20;
+  border-bottom-left-radius: 20;
+}
+
+#memory {
+  background: rgba(29,29,30,.5);
+}
+
+#workspaces button {
+  padding: 2px 2px 2px 2px;
+  border-radius: 0;
+  border-top: 5px solid rgba(0, 0, 0, 1);
+  border-bottom: 5px solid rgba(0, 0, 0, 1);
+  background: rgba( 1, 2, 3, .5);
+}
+
+#workspaces button.focused {
+  background: rgba(36, 60, 214, 0.7);
+}
+
+#workspaces button.urgent {
+  background: rgba(249, 0, 0, 0.8);
+}
+
+#workspaces button#sway-workspace-1 {
+  border-left: 5px solid rgba(0,0,0,1);
+  border-top-left-radius: 20;
+  border-bottom-left-radius: 20;
+}
+
+#workspaces button#sway-workspace-10 {
+  border-right: 5px solid rgba(0,0,0,1);
+  border-top-right-radius: 20;
+  border-bottom-right-radius: 20;
+}
+
+window#waybar.empty {
+  background: rgba(0,0,0,0);
+}
+

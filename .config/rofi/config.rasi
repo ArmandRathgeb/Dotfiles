@@ -1,12 +1,24 @@
 configuration{
-  modi: "run,keys,file-browser,combi,drun";
-  lines: 20;
-  padding: 8;
-  width: 20;
+  modi: "run,filebrowser,drun";
+  theme: "Arc-Dark";
+  sidebar-mode: true;
+  location: 7;
+  window {
+    lines: 25;
+    padding: 5;
+    width: 20px;
+    columns: 1;
+  }
+  element {
+    padding: 5;
+  }
+  filebrowser {
+    directory: "/home";
+    sorting-method: "name";
+    directories-first: true;
+  }
   font: "ubuntu 16";
   show-icons: true;
   terminal: "kitty";
-  color-window: "#1e1f21,#005577";
-  color-normal: "#1e1f21,#FFFFFF,#1e1f21";
   run-command: "{cmd}";
 }

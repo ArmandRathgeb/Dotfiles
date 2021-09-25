@@ -1,40 +1,40 @@
+[colors]
+background      = #1e1f21
+foreground      = f8f8f2
+bordeer         = #0c7ed6
+red             = #f24649
+
 [bar/general]
 enable-ipc = true
-background = #1e1f21
-foreground = #f8f8f2
 border-size = 0
-border-color = #0c7ed6
+border-color = #{colors.border}
 padding-right = 2
-
-radius-bottom = 6
+radius = 6
+background = ${colors.background}
+foreground = ${colors.foreground}
 
 font-0 = Ubuntu-Medium:size=16
-font-1 = Font Awesome 5 Free:size=10;1
-font-2 = icomoon:style=Regular:size=16
-font-3 = FontAwesome:size=16
-font-4 = octicons:style=Medium:size=16
-
-
+font-1 = icomoon:style=Regular:size=16
+font-2 = FontAwesome:size=16
+;font-3 = Font Awesome 5 Free:size=10;1
 separator = "          "
-
-dim-value = 1
+dim-value = .90
+override-redirect = true
 
 tray-position = none
+pseudo-transparency = true
 
 
 [bar/mybar]
 inherits = bar/general
 wm-restack = i3
 height = 30
-width = 3840
+width = 3740
 offset-x = 50
-offset-y = 30
+offset-y = 10
 modules-left = i3 
 modules-center = spotify previous playpause next
-modules-right = memory cpu pulseaudio datetime
-
-[settings]
-pseudo-transparency = true
+modules-right = memory cpu pulseaudio rss datetime menu-apps
 
 [module/datetime]
 type = internal/date
@@ -50,7 +50,7 @@ use-ui-max = true
 interval = 5
 format-volume = <ramp-volume> <label-volume>
 label-muted =   muted
-label-muted-foreground = #f24649
+label-muted-foreground = ${colors.red}
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
@@ -78,8 +78,28 @@ label-focused-padding = 2
 label-unfocused = %index%
 label-unfocused-padding = 2
 label-urgent = %index%
-label-urgent-background = #f40410
+label-urgent-background = ${colors.red}
 label-urgent-padding = 2
+
+[module/menu-apps]
+type = custom/menu
+expand-right = false
+menu-0-0 = "%{F#f00} Shutdown "    
+menu-0-0-exec = shutdown
+menu-0-1 = " Logout " 
+menu-0-1-exec = pkill -KILL -u $USER && logout      
+menu-0-2 = " Reboot"
+menu-0-2-exec = reboot      
+
+label-open ="%{F#f00} %{F-}"
+label-close =" %{F-}"
+label-separator =  | 
+
+[module/rss]
+type = custom/text
+click-left = gfeeds
+content = %{F#ffff00}%{F-}
+
 
 ; https://github.com/mihirlad55/polybar-spotify-module must be installed
 
