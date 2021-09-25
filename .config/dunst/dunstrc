@@ -272,6 +272,8 @@
     # layout changes.
     force_xinerama = false
 
+    layer = top
+
     ### mouse
 
     # Defines list of actions for each mouse event

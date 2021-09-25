@@ -29,6 +29,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+exec dunst
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status # $mod+F10 
@@ -179,7 +181,7 @@ bar {
 }
 
 default_border pixel 4
-for_window [class="MATLAB*"] floating enable
+
 for_window [class="feh*"] floating enable
 for_window [instance="origin.exe"] floating enable
 for_window [class="minecraft*"] floating enable
@@ -187,14 +189,14 @@ gaps inner 35
 gaps left 15
 gaps right 15
 #gaps top 25
-gaps bottom 15
+gaps bottom 5
 default_orientation auto 
 
 bindsym $mod+minus move scratchpad
 bindsym $mod+grave scratchpad show
 bindsym $mod+Tab workspace back_and_forth
-bindsym Mod4+Shift+s exec "gnome-screenshot -d 1 -i"
-bindsym Mod4+l exec "i3lock -B 25 -k --{inside,ring}-color=414f6b55 --{layout,time,date,greeter}-color=ffffff -p win"
+bindsym Mod4+Shift+s exec "grimshot copy area"
+bindsym Mod4+l exec "swaylock --screenshots --clock --indicator --indicator-radius 100 --grace 10 --effect-blur 10x10"
 
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 output "*" bg $HOME/Pictures/Wallpapers/wallpaper_landscape.jpg fill

@@ -100,9 +100,14 @@ alias ..="cd .."
 alias ....="cd ../.."
 alias ~="cd ~"
 # Quick command for suspending to disk
-alias susdisk="i3lock -B 25 -k --{inside,ring}-color=414f6b55 --{layout,time,date,greeter}-color=ffffff -p win && systemctl hibernate"
 # Quick command for suspending to RAM
-alias susram="i3lock -B 25 -k --{inside,ring}-color=414f6b55 --{layout,time,date,greeter}-color=ffffff -p win && clear && systemctl suspend"
+if [ "$XDG_SESSION_TYPE" = "wayland" ] ; then
+  alias susram="swaylock --screenshots --clock --indicator --indicator-radius 100 --grace 10 --effect-blur 10x10 && clear && systemctl suspend"
+  alias susdisk="swaylock --screenshots --clock --indicator --indicator-radius 100 --grace 10 --effect-blur 10x0 && clear && systemctl hibernate" 
+elif [ "$XSystem" = 1 ] ; then 
+  alias susram="i3lock -B 25 -k --{inside,ring}-color=414f6b55 --{layout,time,date,greeter}-color=ffffff -p win && clear && systemctl suspend"
+  alias susdisk="i3lock -B 25 -k --{inside,ring}-color=414f6b55 --{layout,time,date,greeter}-color=ffffff -p win && systemctl hibernate"
+fi
 # lh for list hidden
 alias lh="ls -a"
 #Make displaying images in kittty easier

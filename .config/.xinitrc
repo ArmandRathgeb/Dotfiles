@@ -1,4 +1,5 @@
 # Launch no matter what
+export XSystem=1
 ~/.fehbg &
 picom --experimental-backends --backend glx &
 dunst &
