@@ -9,7 +9,7 @@ export TERM=alacritty
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="bira"
+ZSH_THEME="gallifrey"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -102,11 +102,29 @@ alias ~="cd ~"
 # Quick command for suspending to disk
 # Quick command for suspending to RAM
 if [ "$XDG_SESSION_TYPE" = "wayland" ] ; then
-  alias susram="swaylock --screenshots --clock --indicator --indicator-radius 100 --grace 10 --effect-blur 10x10 && clear && systemctl suspend"
-  alias susdisk="swaylock --screenshots --clock --indicator --indicator-radius 100 --grace 10 --effect-blur 10x0 && clear && systemctl hibernate" 
+  susram() {
+    systemctl suspend
+    swaylock --screenshots --clock --indicator --indicator-radius 100 --effect-blur 10x10 
+    clear
+  }
+  susdisk() {
+    systemctl hibernate
+    swaylock --screenshots --clock --indicator --indicator-radius 100 --effect-blur 10x10 
+    clear
+  }
+  alias record="wf-recorder -a -f "
 elif [ "$XSystem" = 1 ] ; then 
-  alias susram="i3lock -B 25 -k --{inside,ring}-color=414f6b55 --{layout,time,date,greeter}-color=ffffff -p win && clear && systemctl suspend"
-  alias susdisk="i3lock -B 25 -k --{inside,ring}-color=414f6b55 --{layout,time,date,greeter}-color=ffffff -p win && systemctl hibernate"
+  susram() {
+    i3lock -B 25 -k --{inside,ring}-color=414f6b55 --{layout,time,date,greeter}-color=ffffff -p win 
+    systemctl suspend
+    clear
+  }
+
+  susdisk() {
+    i3lock -B 25 -k --{inside,ring}-color=414f6b55 --{layout,time,date,greeter}-color=ffffff -p win 
+    clear
+    systemctl hibernate
+  }
 fi
 # lh for list hidden
 alias lh="ls -a"
