@@ -5,7 +5,7 @@ SAVEHIST=1000
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/arathgeb/.zshrc'
+zstyle :compinstall filename '/home/${USER}/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -21,10 +21,13 @@ PS1='[%F{blue}%n%f %1~] %F{red}${vcs_info_msg_0_}%f~ '
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias rm='rm -i'
+alias matlab='matlab -nodesktop -nosplash'
 
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
 bindkey '^[[3~' delete-char
+
+export PATH="$HOME/.local/share/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
