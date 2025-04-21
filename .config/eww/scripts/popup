@@ -1,0 +1,31 @@
+#!/bin/sh
+
+
+EWW=$(which eww)
+
+run_popup() {
+    LOCKFILE="$HOME/.cache/eww/eww_$1.lock"
+    if [[ ! -f "$LOCKFILE" ]]; then
+        touch "${LOCKFILE}"
+        ${EWW} open $1
+    else 
+        ${EWW} close $1
+        rm "${LOCKFILE}"
+    fi
+}
+
+if [[ ! `pidof eww` ]]; then
+    ${EWW} daemon 
+    sleep 1 
+fi 
+
+run_popup $1
+
+if [ "$1" = "dropdown" ]; then 
+    if [[ ! -f "$LOCKFILE" ]]; then
+        ${EWW} update dropdown_button_icon=""
+    else
+        ${EWW} update dropdown_button_icon=""
+    fi
+fi 
+

@@ -1,0 +1,20 @@
+(defwidget menu []
+    (box
+        )
+    )
+
+
+(defwindow menu
+    :monitor 0
+    :geometry (geometry
+        :anchor "top right"
+        :x "-20px"
+        :y "6px"
+        :width "15%"
+        :height "15%"
+        )
+    :stacking "overlay"
+    :exclusive false
+    :focusable "ondemand"
+    (menu)
+    )

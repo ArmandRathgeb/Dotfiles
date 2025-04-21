@@ -1,0 +1,69 @@
+* {
+  all: unset;
+}
+
+.bar {
+  background-color: rgba(0,0,0,.25);
+  color: #ffffff;
+  padding: 10px;
+}
+
+.workspace-entry-current {
+  color: #ff46a2;
+}
+
+.workspace-entry-windowed {
+  color: #008000;
+}
+
+.battery-low {
+  color: #880808;
+}
+
+.calendar {
+  background-color: #110f18;
+  color: #a277ff;
+}
+
+.dropdown {
+  background-color: #110f18;
+  color: #a277ff;
+  padding: 10px;
+}
+
+scale trough {
+  all: unset;
+  background-color: #ffffff;
+  border-radius: 5px;
+  min-height: 100px;
+  min-width: 15px;
+  margin: .3rem 0 .3rem 0;
+}
+
+scale trough highlight {
+  background-color: #a277ff;
+  border-radius: 5px;
+}
+
+.volume_control trough highlight {
+  background-color: #FAA0A0;
+}
+
+.mic_control trough highlight {
+  background-color: #77dd77;
+}
+
+.brightness_control trough highlight {
+  background-color: #FDFD96;
+}
+
+.powermenu {
+  font-size: 62;
+  border-radius: 10px;
+}
+
+.power {
+  border-radius: 10px;
+  background-color: #231f32;
+}
+

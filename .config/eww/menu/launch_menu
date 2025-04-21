@@ -1,0 +1,16 @@
+#!/bin/bash 
+
+CFG="$HOME/.config/eww/menu/"
+EWW=`which eww`
+
+if [[ ! `pidof eww` ]]; then
+    ${EWW} daemon
+    sleep 1
+fi
+
+run_eww() {
+    ${EWW} --config "${CFG}" open menu
+}
+
+run_eww
+

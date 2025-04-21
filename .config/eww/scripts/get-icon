@@ -1,0 +1,4 @@
+#!/bin/bash 
+
+hyprctl activewindow -j | jq --raw-output .class | sed 's/$/*/' | xargs -I% find /usr/share/applications -iname "%" | xargs -I% grep "Icon" "%" | cut -d'=' -f2
+socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | awk -F '>>|,' '/^activewindow>>/{print $2}' | sed 's/$/*/' | xargs -I% find /usr/share/applications -iname "%" | xargs -I% grep "Icon" "%" | cut -d'=' -f2
