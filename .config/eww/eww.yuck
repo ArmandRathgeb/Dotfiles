@@ -102,7 +102,8 @@
 
 (defwidget dropdown [] 
     (box :class "dropdown"
-        :valign "start"
+        :valign "center"
+        :halign "end"
         :orientation "h"
         :space-evenly false
         :spacing 20

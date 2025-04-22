@@ -1,14 +1,15 @@
 ; Hyprland specific workspaces
 
 (deflisten window :initial "..." "sh ~/.config/eww/scripts/get-window-title")
-;;(deflisten icon :initial "" "bash ~/.config/eww/scripts/get-icon")
+(deflisten icon :initial "" "bash ~/.config/eww/scripts/get-icon")
+
 
 (defwidget window_name []
   (box
     :evenly-spaced false
     :spacing 1
-    ;;(image :icon "${icon}")
-    (label :text "${window}")
+    (label :text window)
+    (image :icon icon)
     )
   )
 

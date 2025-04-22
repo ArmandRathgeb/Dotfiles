@@ -18,6 +18,10 @@ declare -a PACKAGES=(
     "nwg-displays"
     "dunst"
     "brightnessctl"
+    "playerctl"
+    "grim"
+    "slurp"
+    "wl-clipboard"
     "wireplumber"
     "pipewire"
     "pipewire-pulse"
@@ -43,3 +47,9 @@ for FILE in "${LOCAL_CONFIG}*"
 do 
     ln -svi "${LOCAL_CONFIG}/${FILE}" "${USER_CONFIG}/${FILE}"
 done
+
+curl -Lfs https://www.gnome-look.org/p/1308808/loadFiles | jq -r '.files | first.version as $v | .[] | select(.version == $v).url' | perl -pe 's/\%(\w\w)/chr hex $1/ge' | xargs wget
+
+mkdir -p "${HOME}/.local/share/themes/"
+tar -xvzf Aura-GTK.tar.gz -C "${HOME}/.local/share/themes/Aura-GTK"
+rm "Aura-GTK.tar.gz*"
