@@ -38,7 +38,9 @@ done
 chsh -s zsh "${USER}"
 
 hyprpm add "https://github.com/hyprwm/hyprland-plugins"
+hyprpm add "https://github.com/virtcode/hypr-dynamic-cursors"
 hyprpm enable hyprexpo
+hyprpm enable dynamic-cursors
 
 USER_CONFIG="$HOME/.config/" 
 LOCAL_CONFIG="./.config/"

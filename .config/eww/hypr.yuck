@@ -1,7 +1,17 @@
 ; Hyprland specific workspaces
 
-(deflisten window :initial "..." "sh ~/.config/eww/scripts/get-window-title")
-(deflisten icon :initial "" "bash ~/.config/eww/scripts/get-icon")
+(deflisten window
+    :initial "..." "sh ~/.config/eww/scripts/get-window-title"
+    )
+(deflisten icon
+    :initial "" "bash ~/.config/eww/scripts/get-icon"
+    )
+(deflisten workspaces
+    :initial "[]" "bash ~/.config/eww/scripts/get-workspaces"
+    )
+(deflisten current_workspace 
+    :initial "1" "bash ~/.config/eww/scripts/get-active-workspace"
+    )
 
 
 (defwidget window_name []
@@ -12,14 +22,6 @@
     (image :icon icon)
     )
   )
-
-(deflisten workspaces
-    :initial "[]" "bash ~/.config/eww/scripts/get-workspaces"
-    )
-
-(deflisten current_workspace 
-    :initial "1" "bash ~/.config/eww/scripts/get-active-workspace"
-    )
 
 (defwidget workspaces []
     (eventbox 
@@ -37,11 +39,9 @@
                     :onclick "hyprctl dispatch workspace ${workspace.id}"
                     (box
                         :class "workspace-entry ${workspace.windows > 0 ? "occupied" : "empty"}"
-                        ; Figure out visibility at some point
-                        ; :visible "${workspace.windows > 0 || workspace.id == current_workspace ? true : false}"
                         (label
-                            :text "${workspace.id}"
-                            :class "workspace-entry-${workspace.id == current_workspace ? "current" : "${workspace.windows > 0 ?"windowed" : ""}"}" 
+                            :text "${workspace.id == current_workspace ? "🔘" : ""}"
+                            :class "workspace-button${workspace.windows > 0 ? "-active" : ""}"
                             )
                         )
                     )
