@@ -1,0 +1,21 @@
+#!/bin/bash 
+
+EWW=$(which eww)
+CFG="${HOME}/.config/eww/dashboard/"
+
+run() {
+    ${EWW} -c ${CFG} $1 background \
+                            face \
+                            system \
+                            disk \
+                            poweroff \
+                            restart \
+                            exit \
+                            hibernate
+}
+
+if [ "$1" = "open" ]; then
+    run open-many
+elif [ "$1" = "close" ]; then
+    run close
+fi

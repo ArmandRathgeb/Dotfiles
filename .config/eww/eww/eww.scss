@@ -1,0 +1,76 @@
+* {
+  all: unset;
+}
+
+.bar {
+  background-color: rgba(0,0,0,.25);
+  color: #ffffff;
+  padding: .25rem;
+  font-size: .7rem;
+  font-weight: normal;
+}
+
+.workspace-button-active {
+  color: #6e47b8;
+}
+.workspace-button {
+  color: #221639;
+}
+
+.battery-low {
+  color: #880808;
+}
+
+.calendar {
+  background-color: #110f18;
+  color: #a277ff;
+}
+
+.dropdown {
+  background-color: #110f18;
+  color: #a277ff;
+  padding: .25rem;
+}
+
+scale trough {
+  all: unset;
+  background-color: #ffffff;
+  border-radius: .5rem;
+  min-height: 5rem;
+  min-width: .75rem;
+  margin: .3rem 0 .3rem 0;
+}
+
+scale trough highlight {
+  background-color: #a277ff;
+  border-radius: .2rem;
+}
+
+.volume_control trough highlight {
+  background-color: #FAA0A0;
+}
+
+.mic_control trough highlight {
+  background-color: #77dd77;
+}
+
+.brightness_control trough highlight {
+  background-color: #FDFD96;
+}
+
+.powermenu {
+  border-radius: 1rem;
+}
+
+.power {
+  font-size: 3rem;
+  border-radius: 10px;
+  background-color: #231f32;
+}
+
+tooltip {
+  border-radius: 1rem;
+  background-color: #2e2b29;
+  font-size: .75rem;
+}
+

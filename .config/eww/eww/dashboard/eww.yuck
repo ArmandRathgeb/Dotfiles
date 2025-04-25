@@ -1,0 +1,57 @@
+
+(include "./disk.yuck")
+(include "./power.yuck")
+(include "./system_info.yuck")
+
+;; Profile picture
+
+(defwidget face []
+    (box :class "win"
+        :orientation "v"
+        :space-evenly false
+        :spacing 20
+        :vexpand false 
+        :hexpand false
+        (box :class "pfp"
+            :halign "center"
+            )
+        (label :class "name"
+            :text "Armand Rathgeb"
+            )
+        )
+    )
+
+
+(defwindow face
+    :stacking "fg"
+    :focusable false
+    :exclusive false
+    :monitor 0
+    :geometry (geometry 
+                        :x "20%"
+                        :y "17%"
+                        :width "12%"
+                        :height "20%"
+                        )
+    (face)
+    )
+
+;; Background image
+
+(defwidget bg []
+    (image :path "../../hypr/wallpaper.jpg")
+    )
+
+(defwindow background
+    :stacking "fg"
+    :focusable false
+    :exclusive false
+    :monitor 0
+    :geometry (geometry 
+                        :x 0
+                        :y 0
+                        :width "100%"
+                        :height "100%"
+                        )
+    (bg)
+    )

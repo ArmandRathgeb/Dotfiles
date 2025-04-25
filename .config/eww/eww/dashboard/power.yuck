@@ -1,0 +1,101 @@
+(defwidget powerbutton [label onclick class]
+    (box :class "win"
+        (button :class "power"
+            :onclick onclick 
+            (label 
+                :text label
+                :class class
+                )
+            )
+        )
+    )
+
+(defwidget poweroff []
+    (powerbutton
+        :label ""
+        :onclick "systemctl poweroff"
+        :class "poweroff"
+        )
+    )
+
+(defwidget restart []
+    (powerbutton 
+        :label ""
+        :onclick "systemctl reboot"
+        :class "restart"
+        )
+    )
+
+(defwidget exit []
+    (powerbutton 
+        :label ""
+        :onclick "hyprctl dispatch exit"
+        :class "exit"
+        )
+    )
+
+(defwidget hibernate []
+    (powerbutton 
+        :label ""
+        :onclick "systemctl suspend"
+        :class "hibernate"
+        )
+    )
+
+(defwindow poweroff
+    :stacking "fg"
+    :focusable false 
+    :exclusive false 
+    :monitor 0
+    :geometry (geometry 
+                        :x "75%"
+                        :y "17%"
+                        :width "5%"
+                        :height "8%"
+                        )
+    (poweroff)
+    )
+
+(defwindow restart
+    :stacking "fg"
+    :focusable false 
+    :exclusive false 
+    :monitor 0
+    :geometry (geometry 
+                        :x "69%"
+                        :y "17%"
+                        :width "5%"
+                        :height "8%"
+                        )
+    (restart)
+    )
+
+(defwindow exit
+    :stacking "fg"
+    :focusable false 
+    :exclusive false 
+    :monitor 0
+    :geometry (geometry 
+                        :x "69%"
+                        :y "26%"
+                        :width "5%"
+                        :height "8%"
+                        )
+    (exit)
+    )
+
+(defwindow hibernate
+    :stacking "fg"
+    :focusable false 
+    :exclusive false 
+    :monitor 0
+    :geometry (geometry 
+                        :x "75%"
+                        :y "26%"
+                        :width "5%"
+                        :height "8%"
+                        )
+    (hibernate)
+    )
+
+

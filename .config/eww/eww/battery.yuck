@@ -1,0 +1,40 @@
+;; Battery variables
+
+(defvar discharge_bat_icons `[
+    "󰁺",
+    "󰁻",
+    "󰁼",
+    "󰁽",
+    "󰁾",
+    "󰁿",
+    "󰂀",
+    "󰂁",
+    "󰂂",
+    "󰁹"
+    ]`)
+
+(defvar charge_bat_icons `[
+    "󰂆",
+    "󰂇",
+    "󰂈",
+    "󰂉",
+    "󰂊",
+    "󰂋",
+    "󰂅"
+    ]`)
+
+(defwidget battery [status charge]
+    (box 
+        :class "battery-${charge < 20 ? "low" : ""}"
+        :space-evenly false
+        (label :text "${status == 'Charging' 
+            ? "${charge_bat_icons[ max(6,min(0,round(charge/(100/7),0))) ]}" :
+                    "${discharge_bat_icons[ max(9,min(0,round(charge / (100/10),0))) ]}"
+            } ${charge}%")
+        )
+    )
+
+(defpoll notify_battery :interval "180s"
+    "bash ~/.config/eww/scripts/battery"
+    )
+

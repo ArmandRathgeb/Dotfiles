@@ -1,0 +1,111 @@
+*{
+  all: unset;
+}
+
+.win
+{
+  border-radius: 1rem;
+  background-color: #2E344F;
+  font-size: .75rem;
+  font-weight: normal;
+}
+
+.pfp {
+  border-radius: 100%;
+  margin: 1rem .5rem 0rem 0rem;
+  min-height: 7rem;
+  min-width: 7rem;
+  background-size: 7rem;
+  background-image: url("images/face.png");
+}
+
+.name {
+  color: #C3B1E1;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.metric {
+  all: unset;
+}
+
+.metric scale trough {
+  all: unset;
+  background-color: #3A404C;
+  border-radius: 2rem;
+  min-height: 1rem;
+  min-width: 15rem;
+}
+
+.metric scale trough highlight {
+  border-radius: 2rem;
+}
+
+.cpubar trough highlight {
+  background-color: #BF616A;
+}
+
+.storagebar trough highlight {
+  background-color: #A3BE8C;
+}
+
+.batbar trough highlight {
+  background-color: #88C0D0;
+}
+
+.rambar trough highlight {
+  background-color: #C3B1E1;
+}
+
+.power {
+  font-size: 3rem;
+}
+
+.poweroff {
+  color: #88C0D0;
+}
+
+.restart {
+  color: #EBCB8B;
+}
+
+
+.hibernate {
+  color: #A3BE8C;
+}
+
+.exit {
+  color: #BF616A;
+}
+
+.disk_progress {
+  color: #C3B1E1;
+  background-color: #424A71;
+  margin: .5rem;
+  padding: 1.5rem 2.3rem 1.5rem 2.3rem;
+  border-radius: 2rem 0;
+}
+
+.radial_disk_label {
+  font-size: 4rem;
+}
+
+.folderbox {
+  margin: .5rem;
+  border-radius: 2rem;
+  background-color: #424A71;
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+.disk_label {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #E6E6FA;
+}
+
+tooltip {
+  color: #FFFFFF;
+  background-color: #2e2b29;
+  border-radius: 1rem;
+}
