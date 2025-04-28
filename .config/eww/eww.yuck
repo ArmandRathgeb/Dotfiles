@@ -145,7 +145,9 @@
     :stacking "overlay"
     :exclusive false
     :focusable "none"
-    (calendar)
+    (calendar
+        :onclick "xdg-open https://calendar.google.com/u/0/r/day/{2}/{1}/{0}"
+        )
     )
     
 (defwindow dropdown 

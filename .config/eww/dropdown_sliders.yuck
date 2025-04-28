@@ -13,7 +13,7 @@
             )
         (scale :class "volume_control"
             :min 0 
-            :max 150
+            :max 151
             :value volume
             :onchange "bash scripts/volume set {}"
             :orientation "v"
@@ -36,7 +36,7 @@
             )
         (scale :class "mic_control"
             :min 0 
-            :max 150
+            :max 151
             :value mic
             :onchange "bash scripts/mic set {}"
             :orientation "v"
@@ -58,9 +58,10 @@
             :orientation "v"
             :round-digits 0
             :min 1
-            :max 100
+            :max 101
             :value brightness
             :onchange "bash scripts/brightness set {}"
+            :tooltip "Brightness: ${brightness}"
             )
         )
     )

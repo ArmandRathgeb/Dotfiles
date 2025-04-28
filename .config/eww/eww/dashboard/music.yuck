@@ -1,0 +1,76 @@
+(defpoll cover :interval "5s"
+    "bash scripts/music cover")
+
+(defpoll title :interval "5s"
+    "bash scripts/music title")
+
+(defpoll artist :interval "5s"
+    "bash scripts/music artist")
+
+(defpoll statusicon :interval "5s"
+    "bash scripts/music statusicon")
+
+(defpoll album :interval "5s"
+    "bash scripts/music album")
+
+(defpoll songtime :interval "1s"
+    "bash scripts/music songtime")
+
+(defwidget playerctl []
+    (box :class "win"
+        :orientation "h"
+        :space-evenly false
+        :spacing 5
+        :halign "fill"
+        :hexpand false
+        (image 
+            :class "album_art"
+            :path "${cover}"
+            :image-width 450
+            :image-height 450
+            )
+        (box 
+            :class "song-info"
+            :orientation "v"
+            :space-evenly false 
+            :spacing 10
+            (label :text "${title}")
+            (label :text "${artist}")
+            (label :text "${album}")
+
+            (box :class "player_controls"
+                :orientation "h"
+                (button 
+                    :onclick "bash scripts/music prev" "󰒮"
+                    )
+                (button 
+                    :onclick "bash scripts/music toggle" "${statusicon}"
+                    )
+                (button 
+                    :onclick "bash scripts/music next" "󰒭"
+                    )
+                )
+            (scale
+                :active false
+                :min 0
+                :max 101
+                :value "${songtime != "" ? "${songtime}" : 0}"
+                )
+            )
+        )
+    )
+
+(defwindow playerctl
+    :stacking "fg"
+    :focusable true
+    :exclusive false 
+    :monitor 0
+    :geometry (geometry 
+                        :x "33%"
+                        :y "17%"
+                        :width "35%"
+                        :height "20%"
+                        )
+    (playerctl)
+    )
+    

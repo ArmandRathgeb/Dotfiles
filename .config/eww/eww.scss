@@ -5,7 +5,9 @@
 .bar {
   background-color: rgba(0,0,0,.25);
   color: #ffffff;
-  padding: 10px;
+  padding: .25rem;
+  font-size: .7rem;
+  font-weight: normal;
 }
 
 .workspace-button-active {
@@ -27,21 +29,21 @@
 .dropdown {
   background-color: #110f18;
   color: #a277ff;
-  padding: 10px;
+  padding: .25rem;
 }
 
 scale trough {
   all: unset;
   background-color: #ffffff;
-  border-radius: 5px;
-  min-height: 100px;
-  min-width: 15px;
+  border-radius: .5rem;
+  min-height: 5rem;
+  min-width: .75rem;
   margin: .3rem 0 .3rem 0;
 }
 
 scale trough highlight {
   background-color: #a277ff;
-  border-radius: 5px;
+  border-radius: .2rem;
 }
 
 .volume_control trough highlight {
@@ -57,12 +59,18 @@ scale trough highlight {
 }
 
 .powermenu {
-  font-size: 62;
-  border-radius: 10px;
+  border-radius: 1rem;
 }
 
 .power {
+  font-size: 3rem;
   border-radius: 10px;
   background-color: #231f32;
+}
+
+tooltip {
+  border-radius: 1rem;
+  background-color: #2e2b29;
+  font-size: .75rem;
 }
 

@@ -1,7 +1,7 @@
 (defwidget folder [icon dir]
     (button 
         :class "folder"
-        :onclick "thunar ${dir} & disown"
+        :onclick "thunar ${dir}"
         (label 
             :text "${icon}  ${dir}"
             :xalign 0
@@ -70,7 +70,7 @@
 
 (defwindow disk
     :stacking "fg"
-    :focusable true
+    :focusable false 
     :exclusive false 
     :monitor 0
     :geometry (geometry 

@@ -1,0 +1,128 @@
+#!/bin/bash
+
+# Stolen from
+# https://github.com/raexera/tokyo/blob/main/config/eww/dashboard/scripts/music
+
+
+#Control="MPD"
+Control=""
+[ -n "$(pgrep spotify)" ] && Control="spotify"
+# [ -n "$(pgrep rhythmbox)" ] && Control="rhythmbox"
+# [ -n "$(pgrep audacious)" ] && Control="audacious"
+# [ -n "$(pgrep clementine)" ] && Control="clementine"
+# [ -n "$(pgrep strawberry)" ] && Control="strawberry"
+
+
+
+# saves covers here
+Cover=/tmp/cover.png
+# if cover not found in metadata use this instead
+bkpCover=~/.config/eww/dashboard/assets/fallback.png
+mpddir=~/Music
+
+
+## Playerctl
+
+cover() {
+    albumart="$(playerctl metadata mpris:artUrl | sed -e 's/open.spotify.com/i.scdn.co/g')"
+    [ $(playerctl --player=$Control metadata mpris:artUrl) ] && curl -s "$albumart" --output $Cover || cp $bkpCover $Cover 
+    echo "$Cover"
+}
+
+title() {
+    title=$(playerctl --player=$Control metadata --format {{title}})
+    [ -z "$title" ] && title="Nothing Playing"
+    echo "$title"
+}
+
+artist() {
+    artist=$(playerctl --player=$Control metadata --format {{artist}})
+    [ -z "$artist" ] && artist="Offline"
+    echo "$artist"
+}
+
+statusicon() {
+    icon=""
+    [ $(playerctl --player=$Control status) = "Playing" ] && icon=""
+    [ $(playerctl --player=$Control status) = "Paused" ] && icon=""
+    echo "$icon"
+}
+
+album() {
+    album=$(playerctl --player=$Control metadata --format {{album}})
+    [ -z "$album" ] && album="Album"
+    echo "$album"
+}
+
+ctime() {
+    time=$(playerctl --player=$Control position)
+    length=$(playerctl --player=$Control metadata mpris:length)
+    [ -z "$time" ] && time="0"
+    [ -z "$length" ] && length="1"
+    echo "$(echo "${time} * 100000000 / ${length}" | bc)"
+}
+
+## MPC
+
+mpccover() {
+    ffmpeg -i "$mpddir"/"$(mpc current -f %file%)" "${Cover}" -y || cp $bkpCover $Cover
+    echo "$Cover" && exit
+}
+
+mpctitle() {
+    title=$(mpc -f %title% current)
+    [ -z "$title" ] && title="Nothing Playing"
+    echo "$title"
+}
+
+mpcartist() {
+    artist=$(mpc -f %artist% current)
+    [ -z "$artist" ] && artist="Offline"
+    echo "$artist"
+}
+
+mpcicon() {
+    status=$(mpc status | head -2 | tail -1 | cut -c2-7 )
+    icon=""
+    [ "$status" = "playin" ] && icon=""
+    [ "$status" = "paused" ] && icon=""
+    echo "$icon"
+}
+
+mpcalbum() {
+    album=$(mpc -f %album% current)
+    [ -z "$album" ] && album="Album" 
+    echo "$album"
+}
+
+mpcsongtime() {
+    echo $(mpc status | grep "%)" | awk '{ print $4 }' | awk -F% '{ print $1 }' | stdbuf -o0 awk 'sub(/^.{1}/,"")')
+}
+
+case $Control in 
+    MPD) 
+    case $1 in 
+        next) mpc -q next     ;;
+        toggle) mpc -q toggle ;;
+        prev) mpc -q prev     ;;
+        cover) mpccover       ;;
+        title) mpctitle       ;;
+        artist) mpcartist     ;;
+        statusicon) mpcicon   ;;
+        album) mpcalbum       ;;
+        songtime) mpcsongtime ;;
+    esac
+    ;;
+    *)
+    case $1 in
+        next) playerctl --player=$Control next         ;; 
+        toggle) playerctl --player=$Control play-pause ;;
+        prev) playerctl --player=$Control previous     ;;
+        cover) cover           ;;
+        title) title           ;;
+        artist) artist         ;;
+        statusicon) statusicon ;;
+        album) album           ;;
+        songtime) ctime        ;;
+    esac
+esac 2>/dev/null

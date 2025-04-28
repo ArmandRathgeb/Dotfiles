@@ -1,0 +1,90 @@
+(defwidget appicon [app icon]
+    (box :class "appicon"
+        (button 
+            :onclick "${app} & disown"
+            (image :icon icon)
+            )
+        )
+    )
+
+
+(defwidget appbar []
+    (box :class "win"
+        :space-evenly false 
+        :spacing 10 
+        :halign "fill"
+        :hexpand true
+        (appicon 
+            :app "brave"
+            :icon "brave-desktop"
+            )
+        (appicon 
+            :app "codium --enable-features=UseOzonePlatform,WaylandWindowDirections --ozone-platform=wayland"
+            :icon "vscodium"
+            )
+        (appicon 
+            :app "alacritty"
+            :icon "Alacritty"
+            )
+        (appicon 
+            :app "evince"
+            :icon "org.gnome.Evince"
+            )
+        (appicon 
+            :app "libreoffice --calc"
+            :icon "libreoffice-calc"
+            )
+        (appicon 
+            :app "libreoffice --writer"
+            :icon "libreoffice-writer"
+            )
+        (appicon 
+            :app "Thunar"
+            :icon "org.xfce.thunar"
+            )
+        (appicon 
+            :app "obsidian"
+            :icon "obsidian"
+            )
+        (appicon 
+            :app "nicotine"
+            :icon "org.nicotine_plus.Nicotine"
+            )
+        (appicon
+            :app "transmission-gtk"
+            :icon "transmission"
+            )
+        (appicon 
+            :app "lollypop"
+            :icon "org.gnome.Lollypop"
+            )
+        (appicon 
+            :app "texstudio"
+            :icon "texstudio"
+            )
+        (appicon 
+            :app "mpv"
+            :icon "mpv"
+            )
+        (appicon
+            :app "nwg-displays"
+            :icon "nwg-displays"
+            )
+        )
+    )
+
+(defwindow appbar 
+    :stacking "fg"
+    :focusable false 
+    :exclusive false 
+    :monitor 0
+    :geometry (geometry 
+                        :x "20%"
+                        :y "59%"
+                        :width "60.5%"
+                        :height "3%"
+                        )
+    (appbar)
+    )
+
+

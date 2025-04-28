@@ -67,7 +67,7 @@
             :spacing 5
             :space-evenly false
             (button :class "power"
-                :onclick "systemctl poweroff"
+                :onclick "systemctl poweroff & disown"
                 ""
                 )
             (button :class "power"
@@ -79,11 +79,11 @@
             :spacing 5
             :space-evenly false
             (button :class "power"
-                :onclick "systemctl reboot"
+                :onclick "systemctl reboot & disown"
                 ""
                 )
             (button :class "power"
-                :onclick "hyprctl dispatch exit"
+                :onclick "hyprctl dispatch exit & disown"
                 ""
                 )
             )

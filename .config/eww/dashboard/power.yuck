@@ -2,10 +2,6 @@
     (box :class "win"
         (button :class "power"
             :onclick onclick 
-            :vexpand true
-            :hexpand true 
-            :halign "center"
-            :valign "center"
             (label 
                 :text label
                 :class class
@@ -17,7 +13,7 @@
 (defwidget poweroff []
     (powerbutton
         :label ""
-        :onclick "systemctl poweroff & disown"
+        :onclick "systemctl poweroff"
         :class "poweroff"
         )
     )
@@ -25,7 +21,7 @@
 (defwidget restart []
     (powerbutton 
         :label ""
-        :onclick "systemctl reboot & disown"
+        :onclick "systemctl reboot"
         :class "restart"
         )
     )
@@ -33,7 +29,7 @@
 (defwidget exit []
     (powerbutton 
         :label ""
-        :onclick "hyprctl dispatch exit & disown"
+        :onclick "hyprctl dispatch exit"
         :class "exit"
         )
     )
@@ -41,14 +37,14 @@
 (defwidget hibernate []
     (powerbutton 
         :label ""
-        :onclick "systemctl suspend & disown"
+        :onclick "systemctl suspend"
         :class "hibernate"
         )
     )
 
 (defwindow poweroff
     :stacking "fg"
-    :focusable true
+    :focusable false 
     :exclusive false 
     :monitor 0
     :geometry (geometry 
@@ -62,7 +58,7 @@
 
 (defwindow restart
     :stacking "fg"
-    :focusable true
+    :focusable false 
     :exclusive false 
     :monitor 0
     :geometry (geometry 
@@ -76,7 +72,7 @@
 
 (defwindow exit
     :stacking "fg"
-    :focusable true
+    :focusable false 
     :exclusive false 
     :monitor 0
     :geometry (geometry 
@@ -90,7 +86,7 @@
 
 (defwindow hibernate
     :stacking "fg"
-    :focusable true
+    :focusable false 
     :exclusive false 
     :monitor 0
     :geometry (geometry 

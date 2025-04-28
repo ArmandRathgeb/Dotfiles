@@ -59,7 +59,7 @@
 
 (defwindow system
     :stacking "fg"
-    :focusable true
+    :focusable false 
     :exclusive false 
     :monitor 0 
     :geometry (geometry 
