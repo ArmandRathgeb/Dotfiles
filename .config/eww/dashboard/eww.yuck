@@ -5,12 +5,36 @@
 (include "./system_info.yuck")
 (include "./appbar.yuck")
 
-(defwidget something []
+(defpoll time :interval "10s"
+    "date '+%H:%M'"
+    )
+(defpoll date :interval "1h"
+    "date '+%b %d, %Y'"
+    )
+(defpoll weather :interval "1h"
+    "curl 'https://wttr.in/0?format=1'"
+    )
+
+(defwidget clock []
     (box :class "win"
+        :orientation "v"
+        :space-evenly false
+        :spacing 20
+        :valign "center fill"
+        :vexpand true
+        (label :class "time"
+            :text time
+            )
+        (label :class "date"
+            :text date 
+            )
+        (label :class "weather"
+            :text weather 
+            )
         )
     )
 
-(defwindow something
+(defwindow clock
     :stacking "fg"
     :focusable true 
     :exclusive false 
@@ -21,7 +45,7 @@
                         :width "18.5%"
                         :height "20%"
                         )
-    (something)
+    (clock)
     )
     
 

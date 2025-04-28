@@ -9,7 +9,7 @@ run() {
                             system \
                             playerctl \
                             disk \
-                            something \
+                            clock \
                             poweroff \
                             restart \
                             exit \

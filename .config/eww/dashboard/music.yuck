@@ -62,7 +62,7 @@
 
 (defwindow playerctl
     :stacking "fg"
-    :focusable false 
+    :focusable true
     :exclusive false 
     :monitor 0
     :geometry (geometry 
