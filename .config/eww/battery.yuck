@@ -27,9 +27,10 @@
     (box 
         :class "battery-${charge < 20 ? "low" : ""}"
         :space-evenly false
-        (label :text "${status == 'Charging' 
-            ? "${charge_bat_icons[ max(6,min(0,round(charge/(100/7),0))) ]}" :
-                    "${discharge_bat_icons[ max(9,min(0,round(charge / (100/10),0))) ]}"
+        :tooltip status
+        (label :text "${status == 'Discharging' 
+            ? "${discharge_bat_icons[ min(9,max(0,round(charge / 10,0))) ]}"
+            : "${charge_bat_icons[ min(6,max(0,round(charge/(100/7),0))) ]}" 
             } ${charge}%")
         )
     )
