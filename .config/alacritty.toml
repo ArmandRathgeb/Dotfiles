@@ -2,6 +2,10 @@
 opacity = 0.95
 dynamic_title = true
 
+[font]
+normal = {family="UbuntuMono Nerd Font", style="Regular"}
+size=16
+
 [cursor]
 style = {shape="Block", blinking = "On"}
 
@@ -40,3 +44,4 @@ background = '#29263c'
 
 [colors.cursor]
 cursor = '#a277ff'
+

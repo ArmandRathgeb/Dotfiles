@@ -12,7 +12,7 @@
     "date '+%b %d, %Y'"
     )
 (defpoll weather :interval "1h"
-    "curl 'https://wttr.in/0?format=1'"
+    "curl 'https://wttr.in/Dallas?format=3'"
     )
 
 (defwidget clock []

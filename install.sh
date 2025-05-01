@@ -27,6 +27,7 @@ declare -a PACKAGES=(
     "pipewire-pulse"
     "thunar"
     "nm-applet"
+    "ttf-ubuntu-mono-nerd"
     "zsh"
     )
 
