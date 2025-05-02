@@ -1,3 +1,7 @@
+if uwsm check may-start && uwsm select; then
+    exec uwsm start default
+fi
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000

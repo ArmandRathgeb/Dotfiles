@@ -59,7 +59,7 @@
             :round-digits 0
             :min 1
             :max 101
-            :value brightness
+            :value "${brightness}"
             :onchange "bash scripts/brightness set {}"
             :tooltip "Brightness: ${brightness}"
             )
