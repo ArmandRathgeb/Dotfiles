@@ -1,2 +1,3 @@
 export GTK_THEME=Aura-GTK
+export QT_QPA_PLATFORMTHEME=gtk3
 export LESSHISTFILE=-
