@@ -32,6 +32,11 @@ function restart_app {
     $@ & disown
 }
 
+function grub-update {
+    grub-install --target=x86_64-efi --efi-directory=/boot 
+    grub-mkconfig -o /boot/grub/grub.cfg
+}
+
 alias ls='ls --color=auto'
 alias la='ls -a'
 alias grep='grep --color=auto'
@@ -64,3 +69,9 @@ export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/arathgeb/.config/.dart-cli-completion/zsh-config.zsh ]] && . /home/arathgeb/.config/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
