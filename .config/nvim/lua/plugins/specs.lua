@@ -27,23 +27,12 @@ return {
     "neovim/nvim-lspconfig",
     lazy=false,
     config = function(plugin)
-      local lspc = require('lspconfig')
       local coq = require("coq")
-      lspc.pyright.setup(
-        coq.lsp_ensure_capabilities()
-      )
-      lspc.clangd.setup(
-        coq.lsp_ensure_capabilities()
-      )
-      lspc.rust_analyzer.setup(
-        coq.lsp_ensure_capabilities()
-      )
-      lspc.texlab.setup(
-        coq.lsp_ensure_capabilities()
-      )
-      lspc.lua_ls.setup(
-        coq.lsp_ensure_capabilities()
-      )
+      vim.lsp.config('pryright', coq.lsp_ensure_capabilities())
+      vim.lsp.config('clangd', coq.lsp_ensure_capabilities())
+      vim.lsp.config('rust_analyzer', coq.lsp_ensure_capabilities())
+      vim.lsp.config('texlab', coq.lsp_ensure_capabilities())
+      vim.lsp.config('lua_ls', coq.lsp_ensure_capabilities())
     end
   },
   {

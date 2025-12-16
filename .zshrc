@@ -32,6 +32,10 @@ function restart_app {
     $@ & disown
 }
 
+function hyprrebuild {
+    pacman -Qq | grep -E "(hypr|aqua)" | grep -- -git | paru -S --rebuild -
+}
+
 function grub-update {
     grub-install --target=x86_64-efi --efi-directory=/boot 
     grub-mkconfig -o /boot/grub/grub.cfg
