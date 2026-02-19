@@ -1,4 +1,4 @@
-if uwsm check may-start && uwsm select; then
+if uwsm check may-start -q && uwsm select; then
     exec uwsm start default
 fi
 
@@ -36,9 +36,9 @@ function hyprrebuild {
     pacman -Qq | grep -E "(hypr|aqua)" | grep -- -git | paru -S --rebuild -
 }
 
-function grub-update {
-    grub-install --target=x86_64-efi --efi-directory=/boot 
-    grub-mkconfig -o /boot/grub/grub.cfg
+function grub-update() {
+    sudo grub-install --target=x86_64-efi --efi-directory=/boot 
+    sudo grub-mkconfig -o /boot/grub/grub.cfg
 }
 
 alias ls='ls --color=auto'
