@@ -46,14 +46,12 @@ Rectangle {
             return "󰂃"
         }
         color: {
-            if (!Battery.available) 
-                return Config.theme.accentRed
-            if (Battery.isCritical)
+            if (Battery.isCharging || Battery.isFull) 
+                return Config.theme.accentGreen
+            if (Battery.isCritical || !Battery.available)
                 return Config.theme.accentRed
             if (Battery.isLow) 
                 return Config.theme.accentYellow
-           if (Battery.isFull) 
-                return Config.theme.accentGreen
             return Config.theme.fgPrimary
         }
         font.family: Config.theme.fontFamily

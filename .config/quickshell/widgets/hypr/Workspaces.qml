@@ -10,6 +10,7 @@ Item {
 
     implicitHeight: workspaces.implicitHeight
     implicitWidth: workspaces.implicitWidth
+
     WheelHandler {
         onWheel: (event) => {
             if (event.angleDelta.y < 0) 
@@ -48,9 +49,10 @@ Item {
         }
     }
 
-    Row {
+    RowLayout {
         id: workspaces
         spacing: 4
+        anchors.centerIn: parent
 
         Repeater {
             model: Math.max(root.workspacesShown, Hyprland.workspaces.values.length)
@@ -59,7 +61,6 @@ Item {
 
                 implicitWidth: workspaceRect.implicitWidth
                 implicitHeight: workspaceRect.implicitHeight
-
 
                 property int currentWidth: 30
                 property int normalWidth: 16
@@ -110,7 +111,7 @@ Item {
                             return Config.theme.surface1
                         }
                         if (root.workspaceOccupied[workspaceButton.workspaceID - 1]) {
-                            return Config.theme.surface0
+                            return Config.theme.accentMagenta
                         }
                         return Config.theme.bgBase
                     }

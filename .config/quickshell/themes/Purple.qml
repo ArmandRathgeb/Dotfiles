@@ -3,17 +3,26 @@ pragma Singleton
 import QtQuick 
 
 QtObject {
-    id: themeManager 
     property string currentTheme: "purple"
 
     property color accentBlack: "#4d4d4d"
     property color accentRed: "#ff6767"
     property color accentGreen: "#61ffca"
     property color accentYellow: "#ffca85"
-    property color accentBlue: "#a277ff"
+    property color accentBlue: "#89b4fa"
     property color accentMagenta: "#a277ff"
     property color accentCyan: "#61ffca"
     property color accentWhite: "#edecee"
+
+    // I'm lazy so just copying the colors
+    property color boldBlack: "#4d4d4d"
+    property color boldRed: "#ff6767"
+    property color boldGreen: "#61ffca"
+    property color boldYellow: "#ffca85"
+    property color boldBlue: "#a277ff"
+    property color boldMagenta: "#a277ff"
+    property color boldCyan: "#61ffca"
+    property color boldWhite: "#edecee"
 
     property color bgBase: "#1a1b26"
     property color bgSecondary: "#24273a"

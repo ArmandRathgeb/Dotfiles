@@ -11,33 +11,36 @@ ShellRoot {
     property bool showUpdateCenter: false
 
     // Calendar
-    PanelWindow {
-        id: calendarWindow
-        anchors {
-            top: true 
-        }
-        implicitWidth: calendar.implicitWidth
-        implicitHeight: calendar.implicitHeight
+    LazyLoader {
+        active: showCalendar
+        PanelWindow {
+            id: calendarWindow
+            anchors {
+                top: true 
+            }
+            implicitWidth: calendar.implicitWidth
+            implicitHeight: calendar.implicitHeight
 
-        exclusiveZone: 0
-        color: "transparent"
-        visible: shellRoot.showCalendar
+            exclusiveZone: 0
+            color: "transparent"
+            visible: shellRoot.showCalendar
 
-        HyprlandFocusGrab {
-            id: calendarGrab 
-            active: shellRoot.showCalendar
-            windows: [calendarWindow]
-            onCleared: shellRoot.showCalendar = false
-        }
+            HyprlandFocusGrab {
+                id: calendarGrab 
+                active: shellRoot.showCalendar
+                windows: [calendarWindow]
+                onCleared: shellRoot.showCalendar = false
+            }
 
-        CalendarWidget {
-            id: calendar
+            CalendarWidget {
+                id: calendar
+            }
         }
     }
 
     // Control center
     LazyLoader {
-        loading: true
+        active: showControlCenter
         PanelWindow {
             id: controlCenterWindow
             anchors {
@@ -67,7 +70,7 @@ ShellRoot {
     }
 
     LazyLoader {
-        loading: true
+        active: showUpdateCenter
         PanelWindow {
             id: updateWindow
             anchors {

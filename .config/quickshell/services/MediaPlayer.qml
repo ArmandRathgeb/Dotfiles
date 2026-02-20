@@ -18,6 +18,7 @@ Singleton {
     property var trackArtist: root.player.trackArtist
     property var trackAlbum: root.player.trackAlbum
     property var length: root.player.length 
+    property bool canPlay: player.canPlay
     property bool canSeek: player.canSeek
     property real position: player.position
 
@@ -30,7 +31,7 @@ Singleton {
             player.previous()
     }
     function togglePlaying() {
-        if (root.hasPlayer) 
+        if (root.hasPlayer && root.canPlay) 
             player.togglePlaying()
     }
     function nextPlayer() {

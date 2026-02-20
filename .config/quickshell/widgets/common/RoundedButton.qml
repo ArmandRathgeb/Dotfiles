@@ -17,6 +17,8 @@ Button {
     property real bottomRightRadius: radius
     property real bottomLeftRadius: radius
 
+    implicitHeight: contentItem.implicitHeight + 30
+
     property Component mainContentComponent: Component {
         Text {
             visible: text !== ""
@@ -28,8 +30,6 @@ Button {
     }
 
     background: Rectangle {
-        implicitHeight: root.implicitHeight + 20
-        implicitWidth: root.implicitWidth
         radius: root.radius
         bottomLeftRadius: root.bottomLeftRadius
         bottomRightRadius: root.bottomRightRadius

@@ -14,16 +14,25 @@ Item {
     signal toggleControlCenter()
     signal toggleUpdateCenter()
 
-    Row { 
+    Item {
         anchors {
             left: parent.left 
             leftMargin: 8
             verticalCenter: parent.verticalCenter
         }
-        spacing: 8
+        height: parent.height
+        implicitWidth: leftRow.implicitWidth
 
-        Workspaces { }
-        Title {
+        RowLayout { 
+            id: leftRow
+            spacing: 8
+            anchors.fill: parent
+
+            Workspaces { 
+            }
+            Title {
+                Layout.maximumWidth: 500
+            }
         }
     }
 

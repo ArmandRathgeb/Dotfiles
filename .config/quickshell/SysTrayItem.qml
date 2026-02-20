@@ -45,13 +45,13 @@ MouseArea {
         e.accepted = true
     }
 
-    Loader {
+    LazyLoader {
         id: menu 
         function open() {
             menu.active = true
         }
         active: false 
-        sourceComponent: SysTrayMenu {
+        SysTrayMenu {
             id: menuComponent
             Component.onCompleted: this.open()
             trayItemMenuHandle: root.item.menu 

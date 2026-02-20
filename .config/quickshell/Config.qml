@@ -9,6 +9,7 @@ Singleton {
 
     property int workSpacesToShow: 10
     property var theme: Purple
+    //property var theme: CatpuccinMocha
     property alias battery: batteryOptions
     property alias audio: audioOptions
 

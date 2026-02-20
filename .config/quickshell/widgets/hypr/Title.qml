@@ -7,9 +7,11 @@ import qs
 Rectangle {
     id: titleBar
 
-    implicitWidth: titleText.width
-    height: parent.height
+    width: parent.width
+    implicitHeight: titleText.implicitHeight
+    implicitWidth: titleText.implicitWidth
     color: "transparent"
+    clip: true
 
     property var currentWorkspace: {
         if (Hyprland.focusedWorkspace) {
@@ -28,8 +30,9 @@ Rectangle {
 
     Text {
         id: titleText
+        width: parent.width
         anchors.left: parent.left
-        anchors.centerIn: parent
+        anchors.verticalCenter: parent.verticalCenter
         color: Config.theme.fgPrimary
         font.family: Config.theme.fontFamily
         font.pixelSize: Config.theme.fontSize
