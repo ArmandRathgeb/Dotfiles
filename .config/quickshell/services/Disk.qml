@@ -27,7 +27,7 @@ Singleton {
     }
 
     Timer {
-        interval: 1000000
+        interval: 3600000
         running: true 
         repeat: true 
         onTriggered: diskProc.running = true

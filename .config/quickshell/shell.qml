@@ -2,6 +2,7 @@
 import Quickshell
 import Quickshell.Hyprland
 import QtQuick
+import qs.widgets.tiles
 
 ShellRoot {
     id: shellRoot 
@@ -9,6 +10,34 @@ ShellRoot {
     property bool showCalendar: false 
     property bool showControlCenter: false
     property bool showUpdateCenter: false
+
+    LazyLoader {
+        active: true 
+        Variants {
+            model: Quickshell.screens
+            PanelWindow {
+                property var modelData 
+                screen: modelData 
+                id: tiles
+                anchors {
+                    top: true 
+                    left: true
+                }
+                margins {
+                    top: 30
+                    left: 20
+                }
+                exclusiveZone: ExclusionMode.Normal
+                aboveWindows: false
+                color: "transparent"
+                implicitHeight: tileIcons.implicitHeight
+                implicitWidth: tileIcons.implicitWidth
+                Tiles {
+                    id: tileIcons
+                }
+            }
+        }
+    }
 
     // Calendar
     LazyLoader {

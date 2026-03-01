@@ -10,15 +10,31 @@ Rectangle {
     implicitHeight: layout.implicitHeight + 30
     radius: 20
 
+    property var months: [
+                            "January", "February", "March", "April", "May", "June",
+                            "July", "August", "September", "October", "November", "December"
+                        ]
+
     ColumnLayout {
         id: layout
         anchors.centerIn: parent
+        Text {
+            text: months[new Date().getMonth()]
+            color: Config.theme.fgPrimary
+            horizontalAlignment: Text.AlignHCenter
+            font.family: Config.theme.fontFamily
+            Layout.fillWidth: true
+        }
         DayOfWeekRow {
             locale: grid.locale 
             Layout.fillWidth: true
             Layout.fillHeight: true
         }
         MonthGrid {
+            id: grid 
+            locale: Qt.locale()
+            Layout.fillWidth: true
+            Layout.fillHeight: true
             delegate: Text {
                 horizontalAlignment: Text.AlignHCenter 
                 verticalAlignment: Text.AlignVCenter
@@ -47,12 +63,7 @@ Rectangle {
                         Qt.openUrlExternally(url.arg(year).arg(month).arg(day))
                     }
                 }
-
             }
-            id: grid 
-            locale: Qt.locale()
-            Layout.fillWidth: true
-            Layout.fillHeight: true
         }
     }
 }

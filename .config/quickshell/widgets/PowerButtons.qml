@@ -16,6 +16,7 @@ Rectangle {
     ColumnLayout {
         id: column
         anchors.centerIn: parent
+        anchors.margins: 3
         Process {
             id: powerManagement
         }

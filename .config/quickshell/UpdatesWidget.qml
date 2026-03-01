@@ -18,7 +18,7 @@ Rectangle {
         anchors.fill: parent
         anchors.margins: parent.border.width
         RoundedButton {
-            imageIcon: "image://icon/download"
+            imageIcon: Quickshell.iconPath("download")
             text: "Update"
             Layout.fillWidth: true
             onClicked: Updates.update()

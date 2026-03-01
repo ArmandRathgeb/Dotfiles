@@ -120,6 +120,14 @@ Rectangle {
                     airplaneOn = !airplaneOn
                 }
             }
+            RoundedButton {
+                Layout.fillWidth: true 
+                Layout.fillHeight: true 
+                text: "Do not Disturb"
+                onClicked: DoNotDisturb.toggleDND()
+                imageIcon: DoNotDisturb.dndEnabled ? "image://icon/notifications-active-symbolic" : "image://icon/notifications-disabled-symbolic" 
+                color: DoNotDisturb.dndEnabled ? Config.theme.surface1 : Config.theme.surface0 
+            }
         }
     }
 }

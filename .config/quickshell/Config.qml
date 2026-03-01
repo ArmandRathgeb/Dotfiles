@@ -13,10 +13,12 @@ Singleton {
     property alias battery: batteryOptions
     property alias audio: audioOptions
 
-    property int updateFrequencySeconds: 6000 // Once an hour
+    property int updateFrequencySeconds: 3600
     property string terminal: "alacritty"
     property string updateCommand: "paru -Syu"
     property string updateCheck: "checkupdates && paru -Qua"
+
+    property list<string> weatherCities: ["Dallas", "Paris"]
 
     QtObject {
         id: batteryOptions

@@ -15,7 +15,7 @@ SliderIcon {
     background: Rectangle {
         radius: 16
         implicitHeight: 30
-        color: Config.theme.surface1
+        color: Config.theme.bgSecondary
         width: root.availableWidth
         height: 30
         Rectangle {
