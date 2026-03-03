@@ -3,6 +3,7 @@ import Quickshell.Io
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import QtQuick.Effects
 import Quickshell.Wayland
 import Quickshell.Services.UPower
 import Quickshell.Widgets
@@ -19,7 +20,6 @@ Rectangle {
     implicitHeight: layout.implicitHeight + 20
     implicitWidth: layout.implicitWidth + 20
     radius: 20
-
 
     ColumnLayout {
         id: layout

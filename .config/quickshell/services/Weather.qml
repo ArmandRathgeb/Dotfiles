@@ -45,13 +45,13 @@ Singleton {
 
     Process {
         id: checkWeather
-        command: [ "sh", "-c", "curl -s " +  root.getUrl() ]
+        command: [ "sh", "-c", "curl --max-time 30 -s " +  root.getUrl() ]
         running: true
         stdout: SplitParser {
             onRead: data => {
                 console.log("Got input", data)
                 if (weatherInformation.length === Config.weatherCities.length) {
-                    weatherInformation.clear()
+                    weatherInformation = []
                 }
                 const [city, condition, temp] = data.split(" ")
                 console.log(city, condition, temp)
@@ -61,6 +61,9 @@ Singleton {
                     temp:temp
                 }))
             }
+        }
+        stderr: StdioCollector {
+            onStreamFinished: console.log("Weather error:", this.text)
         }
     }
 

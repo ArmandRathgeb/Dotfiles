@@ -19,7 +19,7 @@ Rectangle {
     implicitWidth: 200
 
     // Frosted glass effects 
-    MultiEffect {
+    /*MultiEffect {
         id: frost
         source: root
         anchors.fill: parent
@@ -30,4 +30,5 @@ Rectangle {
         colorization: .5
         
     }
+    */
 }

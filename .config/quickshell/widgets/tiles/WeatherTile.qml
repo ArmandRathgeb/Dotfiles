@@ -10,10 +10,10 @@ Tile {
     id: root
 
     property int currentWeather: 0
+    visible: Weather.weatherInformation.length > 0
 
     ColumnLayout {
         id: weatherLayout
-        visible: Weather.weatherInformation.length > 0
         anchors {
             centerIn: parent 
             margins: 10 
@@ -38,13 +38,6 @@ Tile {
             horizontalAlignment: Text.AlignVCenter
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
         }
-    }
-    BusyIndicator {
-        id: busy
-        anchors.fill: parent
-        anchors.centerIn: parent
-        running: Weather.weatherInformation.length === 0
-        visible: this.running
     }
 
     Timer {

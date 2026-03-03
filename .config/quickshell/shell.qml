@@ -142,7 +142,7 @@ ShellRoot {
             }
             margins.top: 2
             implicitHeight: 30
-            color: "transparent"
+            color: Config.theme.bgTernary//"transparent"
 
             Bar {
                 id: bar
