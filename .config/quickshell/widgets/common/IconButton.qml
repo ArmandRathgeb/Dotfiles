@@ -8,6 +8,7 @@ Rectangle {
     id: root
     signal clicked()
     property var icon
+    property alias hovered: mouseArea.containsMouse
     color: mouseArea.containsMouse ? Config.theme.accentBlack : "transparent"
     radius: 4
 

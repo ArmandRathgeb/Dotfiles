@@ -3,6 +3,7 @@ import QtQuick.Controls
 import Quickshell
 import Quickshell.Widgets
 import Quickshell.Services.SystemTray 
+import qs.widgets.common
 
 MouseArea {
     id: root
@@ -80,11 +81,10 @@ MouseArea {
         width: parent.width 
         height: parent.height
     }
-
-    ToolTip {
+    StyledTooltip {
         id: tooltip
-        parent: trayIcon
-        //visible: root.containsMouse && text.length > 0
-        font.family: Config.theme.fontFamily
+        visible: root.containsMouse && text.length > 0
+        popupType: Popup.Window
+        x: parent.width
     }
 }

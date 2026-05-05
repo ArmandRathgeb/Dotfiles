@@ -41,5 +41,8 @@ QtObject {
     property string fontFamily: "JetBrainMono Nerd Font"
     property int fontSize: 14
 
-
+    property font themeFont: {
+        family: "JetBrainMono Nerd Font"
+        pixelSize: 14
+    }
 }

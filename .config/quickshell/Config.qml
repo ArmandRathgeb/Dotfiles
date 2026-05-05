@@ -20,6 +20,10 @@ Singleton {
 
     property list<string> weatherCities: ["Dallas", "Paris"]
 
+    property list<string> rssFeeds: [
+        "https://www.bronzeagepervert.yoga/feed"
+    ]
+
     QtObject {
         id: batteryOptions
         property real low: 20 

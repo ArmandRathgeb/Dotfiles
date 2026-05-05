@@ -16,6 +16,7 @@ Singleton {
     property var shuffle: player.shuffle
     property var trackArtUrl: root.player.trackArtUrl
     property var trackArtist: root.player.trackArtist
+    property var trackTitle: root.player.trackTitle
     property var trackAlbum: root.player.trackAlbum
     property var length: root.player.length 
     property bool canPlay: player.canPlay

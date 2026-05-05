@@ -28,24 +28,23 @@ Rectangle {
             margins: 10 
             fill: parent
         }
-        spacing: 20
-        ControlCenterClock {
-            Layout.fillWidth: true 
-            Layout.fillHeight: true
-        }
+        spacing: 10
         RowLayout {
-            Media {
-                id: mediaPlayer
-                Layout.fillWidth: true
+            ControlCenterClock {
+                Layout.fillWidth: true 
                 Layout.fillHeight: true
-                Layout.preferredWidth: 350
             }
             PowerButtons {
                 Layout.fillHeight: true 
                 Layout.fillWidth: true
             }
         }
-
+        Media {
+            id: mediaPlayer
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            Layout.preferredWidth: 350
+        }
         BrightnessSlider {
             id: brightnessSlider
             Layout.fillWidth: true
@@ -70,7 +69,7 @@ Rectangle {
                 text: "Idle Inhibitor"
                 color: Idle.inhibit ? Config.theme.surface0 : Config.theme.surface1
                 onClicked: {
-                    Idle.toggleInhibit()
+                    Idle.inhibit = !Idle.inhibit
                     console.log("Idle inhibitor state:", Idle.inhibit ? "on" : "off")
                 }
             }

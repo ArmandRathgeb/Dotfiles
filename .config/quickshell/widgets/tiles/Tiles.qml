@@ -12,7 +12,12 @@ Rectangle {
 
     GridLayout {
         id: grid
-        columns: 1
+        columns: 2
+        RssTile {
+            Layout.columnSpan: 2
+            Layout.rowSpan: 2
+        }
         WeatherTile {}
+        ClockTile {}
     }
 }

@@ -7,6 +7,7 @@ import qs.widgets.tiles
 ShellRoot {
     id: shellRoot 
 
+    property bool showAppMenu: false
     property bool showCalendar: false 
     property bool showControlCenter: false
     property bool showUpdateCenter: false
@@ -39,14 +40,43 @@ ShellRoot {
         }
     }
 
+    // App menu
+    LazyLoader {
+        active: showAppMenu
+        PanelWindow {
+            id: appMenuWindow
+            anchors {
+                top: true
+                left: true
+            }
+            implicitHeight: appMenu.implicitHeight
+            implicitWidth: appMenu.implicitWidth
+            exclusiveZone: 0
+            color: "transparent"
+            visible: shellRoot.showAppMenu
+
+            HyprlandFocusGrab {
+                id: appMenuGrab
+                active: shellRoot.showAppMenu
+                windows: [appMenuWindow]
+                onCleared: shellRoot.showAppMenu = false
+            }
+            AppMenu {
+                id: appMenu
+                onCloseMenu: shellRoot.showAppMenu = false
+                Keys.onEscapePressed: {
+                    shellRoot.showAppMenu = false
+                }
+            }
+        }
+    }
+
     // Calendar
     LazyLoader {
         active: showCalendar
         PanelWindow {
             id: calendarWindow
-            anchors {
-                top: true 
-            }
+            anchors.top: true
             implicitWidth: calendar.implicitWidth
             implicitHeight: calendar.implicitHeight
 
@@ -110,7 +140,7 @@ ShellRoot {
                 top: 8
                 right: 250
             }
-            implicitHeight: 200
+            implicitHeight: 250
             implicitWidth: 200
             exclusiveZone: 0
             color: "transparent"
@@ -147,6 +177,9 @@ ShellRoot {
             Bar {
                 id: bar
                 anchors.fill: parent
+                onToggleAppMenu: {
+                    shellRoot.showAppMenu = !shellRoot.showAppMenu
+                }
                 onToggleCalendar: {
                     shellRoot.showCalendar = !shellRoot.showCalendar
                 }

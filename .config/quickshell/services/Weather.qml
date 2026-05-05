@@ -17,15 +17,13 @@ Singleton {
         "=": "weather-fog",
         "///": "weather-storm",
         "//": "weather-showers",
+        "/": "weather-showers-scattered", // light rain
         "**": "weather-snow",
         ".": "weather-showers-scattered",
-
-    /*
-    "LightRain": "/",
-    "LightSleet": "x",
-    "LightSleetShowers": "x/",
-    */
+        "x": "weather-hail", // light sleet
+        "x/": "weather-hail", // light sleet showers
         "*/": "weather-snow-rain",
+        "*/*": "weather-snow-rain",
         "*": "weather-snow-scattered",
         "o": "weather-clear",
         "/!/": "weather-showers-scattered-storm",
@@ -57,7 +55,7 @@ Singleton {
                 console.log(city, condition, temp)
                 weatherInformation.push(information.createObject(null, {
                     city: city,
-                    icon: "image://icon/" + icons[condition],
+                    icon: Quickshell.iconPath(icons[condition]),
                     temp:temp
                 }))
             }
@@ -68,7 +66,7 @@ Singleton {
     }
 
     Timer {
-        interval: 180000
+        interval: 1800000 // Every half hour
         running: true
         repeat: true 
         onTriggered: checkWeather.running = true

@@ -1,15 +1,14 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
+import qs.widgets.common
 import qs.widgets.indicators
 import qs.widgets.hypr
 
 Item {
     id: root
-    property string backgroundStyle: "opaque"
-    property bool enableBlur: false
-    property string position: "top"
 
+    signal toggleAppMenu()
     signal toggleCalendar()
     signal toggleControlCenter()
     signal toggleUpdateCenter()
@@ -27,6 +26,13 @@ Item {
             id: leftRow
             spacing: 8
             anchors.fill: parent
+
+            IconButton {
+                icon: Quickshell.iconPath("open-menu-symbolic")
+                Layout.fillHeight: true
+                implicitWidth: 32
+                onClicked: toggleAppMenu()
+            }
 
             Workspaces { 
             }

@@ -14,9 +14,9 @@ Item {
     WheelHandler {
         onWheel: (event) => {
             if (event.angleDelta.y < 0) 
-                Hyprland.dispatch(`workspace r+1`)
+                Hyprland.dispatch(`hl.dsp.focus({ workspace = "r+1" })`)
             else if (event.angleDelta.y > 0)
-                Hyprland.dispatch(`workspace r-1`)
+                Hyprland.dispatch(`hl.dsp.focus({ workspace = "r-1" })`)
         }
         acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
         dragThreshold: 1500
@@ -132,7 +132,7 @@ Item {
                 }
 
                 onClicked: {
-                    Hyprland.dispatch("workspace %1".arg(workspaceButton.workspaceID))
+                    Hyprland.dispatch(`hl.dsp.focus({workspace='%1'})`.arg(workspaceButton.workspaceID))
                 }
             }
 

@@ -16,8 +16,8 @@ Rectangle {
 
     //color: "transparent"
     color: Config.theme.bgTernary
-    border.color: Config.theme.accentMagenta
-    border.width: 1
+    //border.color: Config.theme.accentMagenta
+    //border.width: 1
     anchors.margins: 2
 
     radius: 14
@@ -30,7 +30,7 @@ Rectangle {
         anchors.margins: parent.border.width + 1
 
         IconButton {
-            icon: "image://icon/handle-left"
+            icon: Quickshell.iconPath("handle-left")
             implicitHeight: 100
             implicitWidth: 20
             onClicked: MediaPlayer.previousPlayer()
@@ -52,6 +52,29 @@ Rectangle {
 
         ColumnLayout {
             Text {
+                Layout.fillWidth: true 
+                text: MediaPlayer.trackTitle || "Unknown track"
+                color: Config.theme.fgPrimary
+                font.family: Config.theme.fontFamily
+                font.pixelSize: Config.theme.fontSize 
+                horizontalAlignment: Text.AlignHCenter
+                Layout.alignment: Qt.AlignHCenter
+                elide: Text.ElideRight
+                maximumLineCount: 1
+            }
+            Text {
+                Layout.fillWidth: true
+                text: MediaPlayer.trackAlbum 
+                color: Config.theme.fgPrimary
+                font.family: Config.theme.fontFamily
+                font.pixelSize: Config.theme.fontSize
+                horizontalAlignment: Text.AlignHCenter
+                Layout.alignment: Qt.AlignHCenter
+                elide: Text.ElideRight
+                maximumLineCount: 1
+                visible: MediaPlayer.trackAlbum !== ""
+            }
+            Text {
                 Layout.fillWidth: true
                 text: MediaPlayer.trackArtist || "Unknown artist"
                 color: Config.theme.fgPrimary
@@ -62,17 +85,7 @@ Rectangle {
                 elide: Text.ElideRight
                 maximumLineCount: 1
             }
-            Text {
-                Layout.fillWidth: true
-                text: MediaPlayer.trackAlbum || "Unknown album"
-                color: Config.theme.fgPrimary
-                font.family: Config.theme.fontFamily
-                font.pixelSize: Config.theme.fontSize
-                horizontalAlignment: Text.AlignHCenter
-                Layout.alignment: Qt.AlignHCenter
-                elide: Text.ElideRight
-                maximumLineCount: 1
-            }
+
             Slider {
                 id: playerSlider
                 Layout.fillWidth: true
@@ -94,7 +107,7 @@ Rectangle {
                 spacing: 1
                 IconButton {
                     id: previous
-                    icon: "image://icon/media-skip-backward"
+                    icon: Quickshell.iconPath("media-skip-backward")
                     onClicked: {
                         MediaPlayer.previous()
                         playerSlider.value = 0
@@ -108,11 +121,11 @@ Rectangle {
                     icon: {
                         switch(MediaPlayer.playbackState) {
                         case MprisPlaybackState.Playing:
-                            return "image://icon/media-playback-pause"
+                            return Quickshell.iconPath("media-playback-pause")
                         case MprisPlaybackState.Paused:
-                            return "image://icon/media-playback-playing"
+                            return Quickshell.iconPath("media-playback-playing")
                         case MprisPlaybackState.Stopped:
-                            return "image://icon/media-playback-stopped"
+                            return Quickshell.iconPath("media-playback-stopped")
                         }
                     }
                     implicitHeight: 30
@@ -121,14 +134,14 @@ Rectangle {
                 IconButton {
                     id: shuffle 
                     visible: MediaPlayer.shuffleSupported
-                    icon: MediaPlayer.shuffle ? "image://icon/media-playlist-shuffle" : "image://icon/media-playlist-no-shuffle"
+                    icon: Quickshell.iconPath(MediaPlayer.shuffle ? "media-playlist-shuffle" : "media-playlist-no-shuffle")
                     onClicked: MediaPlayer.shuffle = !MediaPlayer.shuffle
                     implicitHeight: 30
                     implicitWidth: 30
                 }
                 IconButton {
                     id: next 
-                    icon: "image://icon/media-skip-forward"
+                    icon: Quickshell.iconPath("media-skip-forward")
                     onClicked: {
                         MediaPlayer.next()
                         playerSlider.value = 0
@@ -139,7 +152,7 @@ Rectangle {
             }
         }
         IconButton{
-            icon: "image://icon/handle-right" 
+            icon: Quickshell.iconPath("handle-right")
             implicitHeight: 100
             implicitWidth: 20
             onClicked: MediaPlayer.nextPlayer()

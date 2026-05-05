@@ -15,6 +15,11 @@ Singleton {
         updateProc.exec(["sh" ,"-c", Config.terminal + " -e " + Config.updateCommand])
     }
 
+    function checkForUpdates() {
+        toUpdate = []
+        checkUpdateProc.running = true
+    }
+
     Process {
         id: updateProc
     }
@@ -35,9 +40,6 @@ Singleton {
         interval: Config.updateFrequencySeconds * 1000
         running: true 
         repeat: true 
-        onTriggered: {
-            toUpdate = []
-            checkUpdateProc.running = true
-        }
+        onTriggered: checkForUpdates()
     }
 }

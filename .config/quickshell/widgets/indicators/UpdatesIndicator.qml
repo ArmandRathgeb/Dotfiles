@@ -14,18 +14,24 @@ Item {
     IconButton {
         id: button
         anchors.centerIn: parent
-        icon: {
+        icon: Quickshell.iconPath(function() {
             if (Updates.numUpdates == 0) {
-                return "image://icon/update-none"
+                return "update-none"
             } else if (Updates.numUpdates < 40) {
-                return "image://icon/update-low"
+                return "update-low"
             } else if (Updates.numUpdates < 60) {
-                return "image://icon/update-medium"
+                return "update-medium"
             }
-            return "image://icon/update-high" 
-        }
+            return "update-high" 
+        }());
         implicitHeight: 20
         implicitWidth: 20
         onClicked: root.clicked()
+        StyledTooltip {
+            visible: button.hovered
+            text: "%1 updates".arg(Updates.numUpdates)
+            x: parent.width
+            height: 30
+        }
     }
 }

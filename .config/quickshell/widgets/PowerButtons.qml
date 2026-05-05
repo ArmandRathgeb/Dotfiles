@@ -7,16 +7,21 @@ import qs.widgets.common
 
 Rectangle { 
     color: "transparent"
-    implicitWidth: column.implicitWidth + 10
+    implicitWidth: column.implicitWidth //+ 10
     implicitHeight: column.implicitHeight + 6
-    border.width: 1
-    border.color: Config.theme.accentMagenta
-    radius: 5
+    //radius: 5
 
-    ColumnLayout {
+    //GridLayout {
+    RowLayout {
         id: column
         anchors.centerIn: parent
-        anchors.margins: 3
+        //anchors.margins: 3
+        spacing: 10
+        /*
+        columns: 2
+        rowSpacing: 10
+        columnSpacing: 10
+        */
         Process {
             id: powerManagement
         }
@@ -58,7 +63,7 @@ Rectangle {
             border.width: 1
             border.color: "transparent"
             onClicked: {
-                powerManagement.exec(["hyprshutdown"])
+                powerManagement.exec(["hyprctl", "dispatch", "exit"])
             }
         }
     }

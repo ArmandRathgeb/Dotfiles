@@ -34,11 +34,19 @@ function restart_app {
 
 function hyprrebuild {
     pacman -Qq | grep -E "(hypr|aqua)" | grep -- -git | paru -S --rebuild -
+    hyprpm update
 }
 
 function grub-update() {
     sudo grub-install --target=x86_64-efi --efi-directory=/boot 
     sudo grub-mkconfig -o /boot/grub/grub.cfg
+}
+
+function paru {
+    /usr/bin/paru "$@"
+    if [ "$1" = "-Syu" ]; then 
+        hyprpm update
+    fi
 }
 
 alias ls='ls --color=auto'

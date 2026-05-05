@@ -8,7 +8,7 @@ import qs.widgets.common
 Rectangle {
     id: root
     color: Config.theme.bgBase
-    implicitHeight: 200
+    implicitHeight: 250
     implicitWidth: 200
     radius: 20
     border.width: 1 
@@ -24,6 +24,13 @@ Rectangle {
             onClicked: Updates.update()
             bottomLeftRadius: 0
             bottomRightRadius: 0
+        }
+        RoundedButton {
+            imageIcon: Quickshell.iconPath("system-reboot")
+            text: "Check for updates"
+            Layout.fillWidth: true
+            onClicked: Updates.checkForUpdates()
+            radius: 0
         }
         ScrollView {
             id: scrollView
