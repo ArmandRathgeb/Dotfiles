@@ -3,13 +3,18 @@ plugins = {}
 
 hl.config({
     plugin = {
-        hyprexpo = {
+        --hyprexpo = {
         --    columns = 3,
         --    gap_size = 10,
         --    workspace_method = "center current"
-        },
-        --dynamic-cursors = {
-            --
+        --},
+--        dynamic_cursors = {
+--            enabled = true,
+--            mode = "tilt",
+--            tilt = {
+--                activation = "negative_quadratic"
+--            },
+--        },
         hyprtasking = {
             --layout = "grid"
         },

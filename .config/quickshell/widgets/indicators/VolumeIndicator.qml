@@ -1,3 +1,5 @@
+pragma ComponentBehavior: Bound
+
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
@@ -15,7 +17,7 @@ Rectangle {
         id: rowLayout
         Text {
             id: sound
-            color: Volume.isSoundMuted ? Config.theme.accentRed : Config.theme.fgPrimary
+            color: Volume.isSoundMuted ? Config.theme.accentRed : Config.theme.accentGreen
             text: {
                 if (Volume.isSoundMuted) 
                     return "󰝟"

@@ -1,6 +1,9 @@
+pragma ComponentBehavior: Bound
+
 import Quickshell
 import QtQuick
 import qs 
+import qs.services
 import qs.widgets.common
 
 Tile {
@@ -9,32 +12,13 @@ Tile {
     property real center_x: this.width / 2
     property real center_y: this.height / 2
 
-    property list<var> secondsTicks
-    property list<var> minutesTicks 
-    property list<var> hoursTicks 
-
-    Timer {
-        interval: 100 
-        running: true 
-        repeat: true 
-        onTriggered: timeChanged()
-    }
-
-    function timeChanged() {
-        var date = new Date
-        secondsTicks.numShown = date.getSeconds()
-        minutesTicks.numShown = date.getMinutes()
-        hoursTicks.numShown   = date.getHours()
-        timeText.text = date.toTimeString()
-    }
-
     Rectangle {
         x: 100
         y: 100
         anchors.centerIn: parent
         Text {
             id: timeText
-            text: "Time"
+            text: Time.timeWithSec
             anchors.centerIn: parent
             color: Config.theme.surface0
             font.pixelSize: 13
@@ -47,6 +31,7 @@ Tile {
         radius: 90
         x0: center_x
         y0: center_y
+        numShown: Time.seconds
     }
 
     ClockTicks {
@@ -56,6 +41,7 @@ Tile {
         radius: 70
         x0: center_x
         y0: center_y
+        numShown: Time.minutes
     }
     
     ClockTicks {
@@ -65,5 +51,6 @@ Tile {
         radius: 50 
         x0: center_x
         y0: center_y
+        numShown: Time.hours
     }
 }

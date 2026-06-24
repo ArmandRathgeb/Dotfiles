@@ -9,14 +9,8 @@ Singleton {
     property bool dndEnabled: false
 
     function toggleDND() {
-        dnd.running = true
+        Quickshell.execDetached(["dunstctl", "set-paused", "toggle"])
         checkDnd.running = true
-    }
-
-    Process {
-        id: dnd
-        command: [ "dunstctl", "set-paused", "toggle"]
-        running: false
     }
 
     Process {

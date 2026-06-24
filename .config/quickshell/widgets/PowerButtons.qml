@@ -1,3 +1,6 @@
+pragma ComponentBehavior: Bound
+
+import Quickshell
 import Quickshell.Io
 import Quickshell.Hyprland
 import QtQuick
@@ -7,63 +10,53 @@ import qs.widgets.common
 
 Rectangle { 
     color: "transparent"
-    implicitWidth: column.implicitWidth //+ 10
+    implicitWidth: column.implicitWidth 
     implicitHeight: column.implicitHeight + 6
-    //radius: 5
 
-    //GridLayout {
     RowLayout {
         id: column
         anchors.centerIn: parent
-        //anchors.margins: 3
         spacing: 10
-        /*
-        columns: 2
-        rowSpacing: 10
-        columnSpacing: 10
-        */
-        Process {
-            id: powerManagement
-        }
+
         IconButton {
             id: powerOff 
-            icon: "image://icon/system-shutdown"
+            icon: Quickshell.iconPath("system-shutdown")
             implicitHeight: 25
             implicitWidth: 25
             border.width: 1
             border.color: "transparent"
             onClicked: {
-                powerManagement.exec(["systemctl", "poweroff"])
+                Quickshell.execDetached(["systemctl", "poweroff"])
             }
         }
         IconButton {
-            icon: "image://icon/system-reboot"
+            icon: Quickshell.iconPath("system-reboot")
             implicitHeight: 25
             implicitWidth: 25
             border.width: 1
             border.color: "transparent"
             onClicked: {
-                powerManagement.exec(["systemctl", "reboot"])
+                Quickshell.execDetached(["systemctl", "reboot"])
             }
         }
         IconButton {
-            icon: "image://icon/lock-symbolic"
+            icon: Quickshell.iconPath("lock-symbolic")
             implicitHeight: 25
             implicitWidth: 25
             border.width: 1
             border.color: "transparent"
             onClicked: {
-                powerManagement.exec(["hyprlock"])
+                Quickshell.execDetached(["hyprlock"])
             }
         }
         IconButton {
-            icon: "image://icon/application-exit-symbolic"
+            icon: Quickshell.iconPath("application-exit-symbolic")
             implicitHeight: 25
             implicitWidth: 25
             border.width: 1
             border.color: "transparent"
             onClicked: {
-                powerManagement.exec(["hyprctl", "dispatch", "exit"])
+                Quickshell.execDetached(["hyprctl", "dispatch", "exit"])
             }
         }
     }

@@ -11,7 +11,6 @@ Rectangle {
     implicitHeight: titleText.implicitHeight
     implicitWidth: titleText.implicitWidth
     color: "transparent"
-    clip: true
 
     property var currentWorkspace: {
         if (Hyprland.focusedWorkspace) {

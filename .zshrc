@@ -53,7 +53,7 @@ alias ls='ls --color=auto'
 alias la='ls -a'
 alias grep='grep --color=auto'
 alias rm='rm -i'
-alias matlab='matlab -nodesktop -nosplash'
+alias matlab='/usr/local/MATLAB/R2025b/bin/matlab -nodesktop -nosplash'
 alias pacown='pacman -Qo'
 
 bindkey '^[[H' beginning-of-line

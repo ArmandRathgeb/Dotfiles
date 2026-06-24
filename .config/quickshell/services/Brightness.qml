@@ -18,10 +18,6 @@ Singleton {
     }
 
     Process {
-        id: set 
-    }
-
-    Process {
         id: init 
         command: ["sh", "-c", `echo $(brightnessctl g) $(brightnessctl m)`]
         running: true
@@ -45,15 +41,15 @@ Singleton {
 
     function setBrightness(brightness: int) {
         const b = Math.max(0, Math.min(brightness, 100))
-        set.exec(["brightnessctl", "s", `${brightness}%` ])
+        Quickshell.execDetached(["brightnessctl", "s", `${brightness}%` ])
     }
 
     function increaseBrightness() {
-        set.exec(["brightnessctl", "s", "+5%"])
+        Quickshell.execDetached(["brightnessctl", "s", "+5%"])
     }
 
     function decreaseBrightness() {
-        set.exec(["brightnessctl", "s", "5%-"])
+        Quickshell.execDetached(["brightnessctl", "s", "5%-"])
     }
 
 }

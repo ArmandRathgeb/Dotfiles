@@ -104,17 +104,14 @@ Rectangle {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 property bool airplaneOn: false 
-                Process {
-                    id: runAirplane
-                }
                 imageIcon: airplaneOn ? "image://icon/airplane-mode-symbolic" : "image://icon/airplane-mode-disabled-symbolic"
                 text: "Airplane mode"
                 color: airplaneOn ? Config.theme.surface0 : Config.theme.surface1
                 onClicked: {
                     if (airplaneOn) {
-                        runAirplane.exec(["nmcli", "radio", "all", "on"])
+                        Quickshell.execDetached(["nmcli", "radio", "all", "on"])
                     } else {
-                        runAirplane.exec(["nmcli", "radio", "all", "off"])
+                        Quickshell.execDetached(["nmcli", "radio", "all", "off"])
                     }
                     airplaneOn = !airplaneOn
                 }

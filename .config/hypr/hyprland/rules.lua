@@ -46,6 +46,10 @@ hl.workspace_rule({
 hl.workspace_rule({
     workspace = "w[tv1]", gaps_out = 0, gaps_in = 0
 })
+
+hl.workspace_rule({
+    workspace = "special", default_name="magic"
+})
 -- workspace = f[1], gapsout:0, gapsin:0
 -- windowrule = bordersize 0, floating:0, onworkspace:w[tv1]
 -- windowrule = rounding 0, floating:0, onworkspace:w[tv1]

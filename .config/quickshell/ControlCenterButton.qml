@@ -9,30 +9,22 @@ Rectangle {
 
     property bool controlCenterShown: false
 
-    implicitWidth: content.implicitWidth + 10
+    implicitWidth: rowLayout.implicitWidth + 10
     height: parent.height
     color: mouseArea.containsMouse ? Config.theme.bgSecondary : Config.theme.bgBase
     radius: 6
 
     signal toggleControlCenter()
 
-    Rectangle {
-        id: content 
+    RowLayout {
+        id: rowLayout
+        spacing: 10
+        anchors.centerIn: parent
 
-        anchors.centerIn: parent 
-        implicitWidth: rowLayout.width 
-        implicitHeight: rowLayout.height
-
-        radius: 6
-        color: "transparent"
-
-        RowLayout {
-            id: rowLayout
-            spacing: 10
-            VolumeIndicator {}
-            BatteryIndicator {}
-        }
+        VolumeIndicator {}
+        BatteryIndicator {}
     }
+    
     MouseArea {
         id: mouseArea 
         anchors.fill: parent

@@ -68,9 +68,8 @@ Item {
                 hoverEnabled: true 
                 enabled: true 
                 cursorShape: Qt.PointingHandCursor
-                z: 10
 
-                Layout.preferredWidth: workspaceRect.isCurrentWorkspace ? currentWidth : normalWidth
+                Layout.preferredWidth: workspaceButton.implicitWidth
 
                 property int workspaceID: index + 1
                 property var hyprWorkspace: {

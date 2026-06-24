@@ -10,11 +10,11 @@ hl.monitor({
 
 hl.on("hyprland.start", function() 
     hl.exec_cmd("uwsm app qs")
-    hl.exec_cmd("nm-applet")
-    hl.exec_cmd("hyprpaper")
-    hl.exec_cmd("hypridle")
+    hl.exec_cmd("uwsm app nm-applet")
+    hl.exec_cmd("uwsm app hyprpaper")
+    hl.exec_cmd("uwsm app hypridle")
     hl.exec_cmd("hyprpm reload")
-    hl.exec_cmd("avizo-service")
+    hl.exec_cmd("uwsm app avizo-service")
 end)
 
 hl.on("monitor.added", function(m)
@@ -93,9 +93,6 @@ hl.config({
         disable_splash_rendering = false,
         font_family = "JetBrainsMono Nerd Font",
     },
-    debug = {
-        disable_logs = false,
-    },
     input = {
         kb_layout = "us",
         kb_variant = "",
@@ -113,6 +110,9 @@ hl.config({
     }, 
     binds = {
         workspace_back_and_forth = true 
+    },
+    cursor = {
+        no_hardware_cursors = 1,  
     },
 })
 
@@ -137,21 +137,25 @@ hl.gesture({
 })
 hl.gesture({
     fingers = 2, 
-    direction = "pinchout", 
+    direction = "pinchin", 
     action = "cursorZoom",
-    arg = "2.0",
-    arg2 = "mult" 
+    zoom_level = 2.0,
+    mode = "live" 
 })
 hl.gesture({
     fingers = 2, 
-    direction = "pinchin", 
+    direction = "pinchout", 
     action = "cursorZoom",
-    arg = "-2.0",
-    arg2 = "mult" 
+    zoom_level = -2.0,
+    mode = "live" 
 })
 
 local mainMod = variables.mainMod
 local win     = variables.win
+
+--hl.bind(mainMod .. " + grave", function() 
+--    hl.plugin.hyprexpo.expo("toggle")
+--end)
 
 hl.bind(mainMod .. " + SHIFT + RETURN", hl.dsp.exec_cmd(variables.terminal))
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.window.close())
@@ -185,7 +189,7 @@ for i = 1,10 do
     local key = i % 10
     hl.bind(mainMod .. " + " ..key, hl.dsp.focus({workspace = i}))
     hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({workspace = i}))
-    -- hl.bind(mainMod .. " + SUPER + " .. key, xtd.bringallfrom({workspace = i}))
+    --hl.bind(mainMod .. " + SUPER + " .. key, hl.plugin.xtd.bringallfrom({workspace = i}))
 end
 
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
@@ -198,12 +202,6 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true})
 
 hl.bind("switch:Lid Switch", hl.dsp.exec_cmd("hyprlock"))
---hl.bind("switch:on:Lid Switch", function()
---    hl.monitor({ output = "eDP-1", disabled = true })
---end)
---hl.bind("switch:off:Lid Siwtch", function()
- --   hl.monitor({ output = "eDP-1", mode = "preferred", position = "0x0", scale = 1 })
---end)
 
 
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("volumectl -u up"), { locked = true, repeating = true })

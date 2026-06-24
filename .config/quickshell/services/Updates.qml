@@ -12,16 +12,12 @@ Singleton {
     property int numUpdates: toUpdate.length
 
     function update() {
-        updateProc.exec(["sh" ,"-c", Config.terminal + " -e " + Config.updateCommand])
+        Quickshell.execDetached(["sh" ,"-c", Config.terminal + " -e " + Config.updateCommand])
     }
 
     function checkForUpdates() {
         toUpdate = []
         checkUpdateProc.running = true
-    }
-
-    Process {
-        id: updateProc
     }
 
     Process {

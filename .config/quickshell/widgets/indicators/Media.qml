@@ -14,10 +14,7 @@ Rectangle {
     implicitHeight: column.implicitHeight + 6
     implicitWidth: column.implicitWidth + 12
 
-    //color: "transparent"
     color: Config.theme.bgTernary
-    //border.color: Config.theme.accentMagenta
-    //border.width: 1
     anchors.margins: 2
 
     radius: 14
@@ -39,7 +36,6 @@ Rectangle {
             Layout.alignment: Qt.AlignHCenter
             implicitWidth: 100
             implicitHeight: 100
-            clip: true
             color: "transparent"
             Image {
                 source: MediaPlayer.trackArtUrl
